@@ -44,7 +44,7 @@ ioport_level_t Sw4Filtered;
 ioport_level_t Sw5Filtered;
 
 int blinkCnt;
-uint16_t u16ADC_Data =50;
+int u16ADC_Data =50;
 
 struct stFilterBtnParameters Sw4Filter;
 struct stFilterBtnParameters Sw5Filter;
