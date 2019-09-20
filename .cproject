@@ -293,6 +293,17 @@
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
-	<storageModule moduleId="scannerConfiguration"/>
 	<storageModule moduleId="org.eclipse.cdt.core.pathentry"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="com.renesas.cdt.managedbuild.gnuarm.toolchain.base.1818916673;com.renesas.cdt.managedbuild.gnuarm.toolchain.base.1818916673.1678256856;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.59626629;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.2026140463">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.renesas.cdt.managedbuild.gnuarm.toolchain.base.1818916673;com.renesas.cdt.managedbuild.gnuarm.toolchain.base.1818916673.1678256856;ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.1996267351;ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.416311072">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="0.446480464">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
 </cproject>
