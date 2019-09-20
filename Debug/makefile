@@ -59,33 +59,33 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-IOs.srec \
+ProyectoIntegrador.srec \
 
 SECONDARY_SIZE += \
-IOs.siz \
+ProyectoIntegrador.siz \
 
 
 # All Target
-all: IOs.elf secondary-outputs
+all: ProyectoIntegrador.elf secondary-outputs
 
 # Tool invocations
-IOs.elf: $(OBJS) $(USER_OBJS)
+ProyectoIntegrador.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C Linker'
-	$(file > IOs.elf.in,-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g3 -T "C:\\REP16082019\\IOs\\script/s7g2.ld" -Xlinker --gc-sections -L "C:\\REP16082019\\IOs\\synergy\\ssp\\src\\bsp\\cmsis\\DSP_Lib\\cm4_gcc" -Wl,-Map,"IOs.map" --specs=nano.specs --specs=rdimon.specs -o "IOs.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
-	arm-none-eabi-gcc @"IOs.elf.in"
+	$(file > ProyectoIntegrador.elf.in,-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g3 -T "C:\\DSE\\EQUIPO8\\ProyectoIntegrador\\script/s7g2.ld" -Xlinker --gc-sections -L "C:\\DSE\\EQUIPO8\\ProyectoIntegrador\\synergy\\ssp\\src\\bsp\\cmsis\\DSP_Lib\\cm4_gcc" -Wl,-Map,"ProyectoIntegrador.map" --specs=nano.specs --specs=rdimon.specs -o "ProyectoIntegrador.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	arm-none-eabi-gcc @"ProyectoIntegrador.elf.in"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-IOs.srec: IOs.elf
+ProyectoIntegrador.srec: ProyectoIntegrador.elf
 	@echo 'Invoking: Cross ARM GNU Create Flash Image'
-	arm-none-eabi-objcopy -O srec "IOs.elf"  "IOs.srec"
+	arm-none-eabi-objcopy -O srec "ProyectoIntegrador.elf"  "ProyectoIntegrador.srec"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-IOs.siz: IOs.elf
+ProyectoIntegrador.siz: ProyectoIntegrador.elf
 	@echo 'Invoking: Cross ARM GNU Print Size'
-	arm-none-eabi-size --format=berkeley "IOs.elf"
+	arm-none-eabi-size --format=berkeley "ProyectoIntegrador.elf"
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -151,7 +151,7 @@ ifneq ($(strip $(C_DEPS)),)
 	-@ xargs -s 6000 -t -a clean_C_DEPS.tmp $(RM)
 	-@$(RM) clean_C_DEPS.tmp
 endif
-	-$(RM)  IOs.elf
+	-$(RM)  ProyectoIntegrador.elf
 	-@echo ' '
 
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)
