@@ -1,6 +1,4 @@
 eclipse.preferences.version=1
-environment/project/0.446480464/append=true
-environment/project/0.446480464/appendContributed=true
 environment/project/com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.1742670421/SECURE_BUILD_COMMAND/delimiter=
 environment/project/com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.1742670421/SECURE_BUILD_COMMAND/operation=replace
 environment/project/com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.1742670421/SECURE_BUILD_COMMAND/value=${renesas.support.targetLoc\:synergy-build}/isdebuild
