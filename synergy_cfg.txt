@@ -128,8 +128,8 @@ Synergy Configuration
       P402 3 CAN0_CRX CAN0_CRX0 Low None "Peripheral mode" CMOS None "AGT0: AGTIO; AGT1: AGTIO; CAN0: CRX; ETHERC0: MDIO; IRQ0: IRQ04; RTC0: RTCIC0; SCI7: RXD_MISO; SCI7: SCL" 
       P403 4 RMII_MDC Ethernet_Controller_1_RMII_ET1_MDC Medium - "Peripheral mode" CMOS None "AGT0: AGTIO; AGT1: AGTIO; ETHERC1: MDC; GPT3: GTIOCA; PDC0: PIXD7; RTC0: RTCIC1; SCI7: CTS_RTS_SS; SSI0: SSISCK" 
       P404 5 RMII_MDIO Ethernet_Controller_1_RMII_ET1_MDIO Medium - "Peripheral mode" CMOS None "ETHERC1: MDIO; GPT3: GTIOCB; PDC0: PIXD6; RTC0: RTCIC2; SSI0: SSIWS" 
-      P405 6 GPT1_GTIOCA - Low - "Peripheral mode" CMOS None "ETHERC1: TXD_EN; GPT1: GTIOCA; PDC0: PIXD5; SSI0: SSITXD" 
-      P406 7 RMII_TXD1 Ethernet_Controller_1_RMII_RMII1_TXD1 High - "Peripheral mode" CMOS None "ETHERC1: TXD1; GPT1: GTIOCB; PDC0: PIXD4; SSI0: SSIRXD" 
+      P405 6 - - - - Disabled - - "ETHERC1: TXD_EN; GPT1: GTIOCA; PDC0: PIXD5; SSI0: SSITXD" 
+      P406 7 GPT1_GTIOCB - Low - "Peripheral mode" CMOS None "ETHERC1: TXD1; GPT1: GTIOCB; PDC0: PIXD4; SSI0: SSIRXD" 
       P407 44 USBFS0_VBUS USB_Full_Speed_USB0_VBUS Low - "Peripheral mode" CMOS None "ADC0: ADTRG; CTSU0: TS03; ETHERC0: EXOUT; IIC0: SDA; RTC0: RTCOUT; SCI4: CTS_RTS_SS; SPI1: SSL3; USBFS0: VBUS" 
       P408 43 CTSU0_TS04 Cap_Touch_Sensing_Unit_TS04 Low None "Peripheral mode" CMOS None "CTSU0: TS04; ETHERC0: CRS_DV; GPT10: GTIOCB; IRQ0: IRQ07; OPS0: GTOWLO; SCI3: RXD_MISO; SCI3: SCL; USBFS0: ID; USBHS0: ID" 
       P409 42 CTSU0_TS05 Cap_Touch_Sensing_Unit_TS05 Low None "Peripheral mode" CMOS None "CTSU0: TS05; ETHERC0: RX_ER; GPT10: GTIOCA; IRQ0: IRQ06; OPS0: GTOWUP; SCI3: SDA; SCI3: TXD_MOSI; USBFS0: EXICEN; USBHS0: EXICEN" 
@@ -266,6 +266,53 @@ Synergy Configuration
   Module "ADC Driver on r_adc"
     Parameter Checking: Enabled
     
+  Module "Touch Panel Framework on sf_touch_panel_i2c"
+    Parameter Checking: Default (BSP)
+    
+  Module "Messaging Framework on sf_message"
+    Parameter Checking: Default (BSP)
+    Message Queue Depth (Total number of messages to be enqueued in a Message Queue): 16
+    
+  Module "External IRQ Framework on sf_external_irq"
+    Parameter Checking: Default (BSP)
+    
+  Module "External IRQ Driver on r_icu"
+    Parameter Checking: Default (BSP)
+    
+  Module "I2C Master Driver on r_riic"
+    Parameter Checking: Default (BSP)
+    
+  Module "Transfer Driver on r_dtc"
+    Parameter Checking: Default (BSP)
+    Software Start: Disabled
+    Linker section to keep DTC vector table: .ssp_dtc_vector_table
+    
+  Module "Touch Panel Driver on touch_panel_sx8654"
+  Module "GUIX on gx"
+    Enable Synergy 2D Drawing Engine Support: Yes(default)
+    Enable Synergy JPEG Support: Yes(default)
+    
+  Module "GUIX Port on sf_el_gx"
+    Parameter Checking: Enabled
+    
+  Module "Display Driver on r_glcd"
+    Parameter Checking: Default (BSP)
+    
+  Module "JPEG Decode Framework on sf_jpeg_decode"
+    Parameter Checking: Default (BSP)
+    
+  Module "JPEG Decode Driver on r_jpeg_decode"
+    Parameter Checking: Default (BSP)
+    
+  Module "D/AVE 2D Driver on dave2d"
+  Module "D/AVE 2D Port on sf_tes_2d_drw"
+    Work memory size for display lists in bytes: 32768
+    DRW Interrupt Priority: Priority 3
+    
+  Module "JPEG Common"
+  Module "SPI Driver on r_sci_spi"
+    Parameter Checking: Default (BSP)
+    
   HAL
     Instance "g_elc ELC Driver on r_elc"
       Name [Fixed]: g_elc
@@ -396,4 +443,336 @@ Synergy Configuration
       Callback: NULL
       Overflow Interrupt Priority: Disabled
       
+  Thread "Main Thead"
+    Symbol: main_thread
+    Name: Main Thead
+    Stack size (bytes): 2048
+    Priority: 6
+    Auto start: Enabled
+    Time slicing interval (ticks): 10
+    
+    Instance "g_sf_touch_panel_i2c Touch Panel Framework on sf_touch_panel_i2c"
+      Name: g_sf_touch_panel_i2c
+      Thread Priority: 3
+      Hsize Pixels: 240
+      Vsize Pixels: 320
+      Update Hz: 10
+      Reset Pin: IOPORT_PORT_10_PIN_09
+      Touch Event Class Instance Number: 0
+      Touch Coordinate Rotation Angle(Clockwise): 0
+      Name of generated initialization function: sf_touch_panel_i2c_init0
+      Auto Initialization: Enable
+      
+      Instance "g_sf_message0 Messaging Framework on sf_message"
+        Name: g_sf_message0
+        Work memory size in bytes: 2048
+        Pointer to subscriber list array: p_subscriber_lists
+        Name of the block pool internally used in the messaging framework: sf_msg_blk_pool
+        Name of generated initialization function: sf_message_init0
+        Auto Initialization: Enable
+        
+      Instance "g_i2c I2C Master Driver on r_riic"
+        Name: g_i2c
+        Channel: 2
+        Rate: Standard
+        Slave Address: 0x48
+        Address Mode: 7-Bit
+        SDA Output Delay (nano seconds): 300
+        Timeout Mode: Short Mode
+        Callback: NULL
+        Receive Interrupt Priority: Priority 3
+        Transmit Interrupt Priority: Priority 3
+        Transmit End Interrupt Priority: Priority 3
+        Error Interrupt Priority: Priority 3
+        
+        Instance "g_transfer0 Transfer Driver on r_dtc IIC2 TXI"
+          Name: g_transfer0
+          Mode: Normal
+          Transfer Size: 1 Byte
+          Destination Address Mode: Fixed
+          Source Address Mode: Incremented
+          Repeat Area (Unused in Normal Mode): Source
+          Interrupt Frequency: After all transfers have completed
+          Destination Pointer: NULL
+          Source Pointer: NULL
+          Number of Transfers: 0
+          Number of Blocks (Valid only in Block Mode): 0
+          Activation Source (Must enable IRQ): IIC2 TXI
+          Auto Enable: False
+          Callback (Only valid with Software start): NULL
+          ELC Software Event Interrupt Priority: Disabled
+          
+        Instance "g_transfer1 Transfer Driver on r_dtc IIC2 RXI"
+          Name: g_transfer1
+          Mode: Normal
+          Transfer Size: 1 Byte
+          Destination Address Mode: Incremented
+          Source Address Mode: Fixed
+          Repeat Area (Unused in Normal Mode): Destination
+          Interrupt Frequency: After all transfers have completed
+          Destination Pointer: NULL
+          Source Pointer: NULL
+          Number of Transfers: 0
+          Number of Blocks (Valid only in Block Mode): 0
+          Activation Source (Must enable IRQ): IIC2 RXI
+          Auto Enable: False
+          Callback (Only valid with Software start): NULL
+          ELC Software Event Interrupt Priority: Disabled
+          
+      Instance "g_sf_touch_irq External IRQ Framework on sf_external_irq"
+        Name: g_sf_touch_irq
+        Event: Semaphore Put
+        
+        Instance "g_touch_irq External IRQ Driver on r_icu"
+          Name: g_touch_irq
+          Channel: 9
+          Trigger: Falling
+          Digital Filtering: Enabled
+          Digital Filtering Sample Clock (Only valid when Digital Filtering is Enabled): PCLK / 64
+          Interrupt enabled after initialization: True
+          Callback: NULL
+          Pin Interrupt Priority: Priority 3
+          
+      Instance "Touch Panel Driver on touch_panel_sx8654"
+        Name: g_sf_touch_panel_i2c_chip_sx8654
+        
+    Instance "GUIX on gx"
+      Instance "g_sf_el_gx GUIX Port on sf_el_gx"
+        Name: g_sf_el_gx
+        Display Driver Configuration Inheritance: Inherit Graphics Screen 1
+        Name of User Callback function: NULL
+        Screen Rotation Angle(Clockwise): 0
+        GUIX Canvas Buffer (required if rotation angle is not zero): Not used
+        Size of JPEG Work Buffer (valid if JPEG hardware acceleration enabled): 81920
+        Memory section for GUIX Canvas Buffer: sdram
+        Memory section for JPEG Work Buffer: bss
+        D/AVE 2D Frame Buffer Cache(Valid if D/AVE 2D Drawing Engine is enabled): Enable (Default)
+        
+        Instance "g_display Display Driver on r_glcd"
+          Name: g_display
+          Name of display callback function to be defined by user: NULL
+          Input - Panel clock source select: Internal clock(GLCDCLK)
+          Input - Graphics screen1: Used
+          Input - Graphics screen1 frame buffer name: fb_background
+          Input - Number of Graphics screen1 frame buffer: 2
+          Input - Section where Graphics screen1 frame buffer allocated: bss
+          Input - Graphics screen1 input horizontal size: 256
+          Input - Graphics screen1 input vertical size: 320
+          Input - Graphics screen1 input horizontal stride(not bytes but pixels): 256
+          Input - Graphics screen1 input format: 16bits RGB565
+          Input - Graphics screen1 input line descending: Not used
+          Input - Graphics screen1 input lines repeat: Off
+          Input - Graphics screen1 input lines repeat times: 0
+          Input - Graphics screen1 layer coordinate X: 0
+          Input - Graphics screen1 layer coordinate Y: 0
+          Input - Graphics screen1 layer background color alpha: 255
+          Input - Graphics screen1 layer background color Red: 255
+          Input - Graphics screen1 layer background color Green: 255
+          Input - Graphics screen1 layer background color Blue: 255
+          Input - Graphics screen1 layer fading control: None
+          Input - Graphics screen1 layer fade speed: 0
+          Input - Graphics screen2: Not used
+          Input - Graphics screen2 frame buffer name: fb_foreground
+          Input - Number of Graphics screen2 frame buffer: 2
+          Input - Section where Graphics screen2 frame buffer allocated: sdram
+          Input - Graphics screen2 input horizontal size: 800
+          Input - Graphics screen2 input vertical size: 480
+          Input - Graphics screen2 input horizontal stride(not bytes but pixels): 800
+          Input - Graphics screen2 input format: 16bits RGB565
+          Input - Graphics screen2 line descending: Off
+          Input - Graphics screen2 input lines repeat: Off
+          Input - Graphics screen2 input lines repeat times: 0
+          Input - Graphics screen2 layer coordinate X: 0
+          Input - Graphics screen2 layer coordinate Y: 0
+          Input - Graphics screen2 layer background color alpha: 255
+          Input - Graphics screen2 layer background color Red: 255
+          Input - Graphics screen2 layer background color Green: 255
+          Input - Graphics screen2 layer background color Blue: 255
+          Input - Graphics screen2 layer fading control: None
+          Input - Graphics screen2 layer fade speed: 0
+          Output - Horizontal total cycles: 320
+          Output - Horizontal active video cycles: 240
+          Output - Horizontal back porch cycles: 6
+          Output - Horizontal sync signal cycles: 4
+          Output - Horizontal sync signal polarity: Low active
+          Output - Vertical total lines: 328
+          Output - Vertical active video lines: 320
+          Output - Vertical back porch lines: 4
+          Output - Vertical sync signal lines: 4
+          Output - Vertical sync signal polarity: Low active
+          Output - Format: 16bits RGB565
+          Output - Endian: Little endian
+          Output - Color order: RGB
+          Output - Data Enable Signal Polarity: High active
+          Output - Sync edge: Rising edge
+          Output - Background color alpha channel: 255
+          Output - Background color R channel: 0
+          Output - Background color G channel: 0
+          Output - Background color B channel: 0
+          CLUT: Not used
+          CLUT - CLUT buffer size: 256
+          TCON - Hsync pin select: LCD_TCON2
+          TCON - Vsync pin select: LCD_TCON1
+          TCON - DataEnable pin select: LCD_TCON0
+          TCON - Panel clock division ratio: 1/32
+          Color correction - Brightness: Off
+          Color correction - Brightness R channel: 512
+          Color correction - Brightness G channel: 512
+          Color correction - Brightness B channel: 512
+          Color correction - Contrast: Off
+          Color correction - Contrast(gain) R channel: 128
+          Color correction - Contrast(gain) G channel: 128
+          Color correction - Contrast(gain) B channel: 128
+          Color correction - Gamma correction(Red): Off
+          Color correction - Gamma gain R[0]: 0
+          Color correction - Gamma gain R[1]: 0
+          Color correction - Gamma gain R[2]: 0
+          Color correction - Gamma gain R[3]: 0
+          Color correction - Gamma gain R[4]: 0
+          Color correction - Gamma gain R[5]: 0
+          Color correction - Gamma gain R[6]: 0
+          Color correction - Gamma gain R[7]: 0
+          Color correction - Gamma gain R[8]: 0
+          Color correction - Gamma gain R[9]: 0
+          Color correction - Gamma gain R[10]: 0
+          Color correction - Gamma gain R[11]: 0
+          Color correction - Gamma gain R[12]: 0
+          Color correction - Gamma gain R[13]: 0
+          Color correction - Gamma gain R[14]: 0
+          Color correction - Gamma gain R[15]: 0
+          Color correction - Gamma threshold R[0]: 0
+          Color correction - Gamma threshold R[1]: 0
+          Color correction - Gamma threshold R[2]: 0
+          Color correction - Gamma threshold R[3]: 0
+          Color correction - Gamma threshold R[4]: 0
+          Color correction - Gamma threshold R[5]: 0
+          Color correction - Gamma threshold R[6]: 0
+          Color correction - Gamma threshold R[7]: 0
+          Color correction - Gamma threshold R[8]: 0
+          Color correction - Gamma threshold R[9]: 0
+          Color correction - Gamma threshold R[10]: 0
+          Color correction - Gamma threshold R[11]: 0
+          Color correction - Gamma threshold R[12]: 0
+          Color correction - Gamma threshold R[13]: 0
+          Color correction - Gamma threshold R[14]: 0
+          Color correction - Gamma threshold R[15]: 0
+          Color correction - Gamma correction(Green): Off
+          Color correction - Gamma gain G[0]: 0
+          Color correction - Gamma gain G[1]: 0
+          Color correction - Gamma gain G[2]: 0
+          Color correction - Gamma gain G[3]: 0
+          Color correction - Gamma gain G[4]: 0
+          Color correction - Gamma gain G[5]: 0
+          Color correction - Gamma gain G[6]: 0
+          Color correction - Gamma gain G[7]: 0
+          Color correction - Gamma gain G[8]: 0
+          Color correction - Gamma gain G[9]: 0
+          Color correction - Gamma gain G[10]: 0
+          Color correction - Gamma gain G[11]: 0
+          Color correction - Gamma gain G[12]: 0
+          Color correction - Gamma gain G[13]: 0
+          Color correction - Gamma gain G[14]: 0
+          Color correction - Gamma gain G[15]: 0
+          Color correction - Gamma threshold G[0]: 0
+          Color correction - Gamma threshold G[1]: 0
+          Color correction - Gamma threshold G[2]: 0
+          Color correction - Gamma threshold G[3]: 0
+          Color correction - Gamma threshold G[4]: 0
+          Color correction - Gamma threshold G[5]: 0
+          Color correction - Gamma threshold G[6]: 0
+          Color correction - Gamma threshold G[7]: 0
+          Color correction - Gamma threshold G[8]: 0
+          Color correction - Gamma threshold G[9]: 0
+          Color correction - Gamma threshold G[10]: 0
+          Color correction - Gamma threshold G[11]: 0
+          Color correction - Gamma threshold G[12]: 0
+          Color correction - Gamma threshold G[13]: 0
+          Color correction - Gamma threshold G[14]: 0
+          Color correction - Gamma threshold G[15]: 0
+          Color correction - Gamma correction(Blue): Off
+          Color correction - Gamma gain B[0]: 0
+          Color correction - Gamma gain B[1]: 0
+          Color correction - Gamma gain B[2]: 0
+          Color correction - Gamma gain B[3]: 0
+          Color correction - Gamma gain B[4]: 0
+          Color correction - Gamma gain B[5]: 0
+          Color correction - Gamma gain B[6]: 0
+          Color correction - Gamma gain B[7]: 0
+          Color correction - Gamma gain B[8]: 0
+          Color correction - Gamma gain B[9]: 0
+          Color correction - Gamma gain B[10]: 0
+          Color correction - Gamma gain B[11]: 0
+          Color correction - Gamma gain B[12]: 0
+          Color correction - Gamma gain B[13]: 0
+          Color correction - Gamma gain B[14]: 0
+          Color correction - Gamma gain B[15]: 0
+          Color correction - Gamma threshold B[0]: 0
+          Color correction - Gamma threshold B[1]: 0
+          Color correction - Gamma threshold B[2]: 0
+          Color correction - Gamma threshold B[3]: 0
+          Color correction - Gamma threshold B[4]: 0
+          Color correction - Gamma threshold B[5]: 0
+          Color correction - Gamma threshold B[6]: 0
+          Color correction - Gamma threshold B[7]: 0
+          Color correction - Gamma threshold B[8]: 0
+          Color correction - Gamma threshold B[9]: 0
+          Color correction - Gamma threshold B[10]: 0
+          Color correction - Gamma threshold B[11]: 0
+          Color correction - Gamma threshold B[12]: 0
+          Color correction - Gamma threshold B[13]: 0
+          Color correction - Gamma threshold B[14]: 0
+          Color correction - Gamma threshold B[15]: 0
+          Dithering: Off
+          Dithering - Mode: Truncate
+          Dithering - Pattern A: Pattern 11
+          Dithering - Pattern B: Pattern 11
+          Dithering - Pattern C: Pattern 11
+          Dithering - Pattern D: Pattern 11
+          Misc - Correction Process Order: Brightness and Contrast then Gamma
+          Line Detect Interrupt Priority: Priority 3
+          Underflow 1 Interrupt Priority: Priority 3
+          Underflow 2 Interrupt Priority: Priority 3
+          
+        Instance "g_sf_jpeg_decode0 JPEG Decode Framework on sf_jpeg_decode"
+          Name: g_sf_jpeg_decode0
+          
+          Instance "g_jpeg_decode0 JPEG Decode Driver on r_jpeg_decode"
+            Name: g_jpeg_decode0
+            Byte Order for Input Data Format: Normal byte order (1)(2)(3)(4)(5)(6)(7)(8)
+            Byte Order for Output Data Format: Normal byte order (1)(2)(3)(4)(5)(6)(7)(8)
+            Output Data Color Format: Pixel Data RGB565 format
+            Alpha value to be applied to decoded pixel data(only valid for ARGB8888 format): 255
+            Name of user callback function: NULL
+            Decompression Interrupt Priority: Priority 3
+            Data Transfer Interrupt Priority: Priority 3
+            
+            Instance "g_jpeg_common0 JPEG Common"
+              Name: g_jpeg_common0
+              
+        Instance "D/AVE 2D Driver on dave2d"
+          Instance "D/AVE 2D Port on sf_tes_2d_drw"
+    Instance "g_spi_lcdc SPI Driver on r_sci_spi"
+      Name: g_spi_lcdc
+      Channel: 0
+      Operating Mode: Master
+      Clock Phase: Data sampling on odd edge, data variation on even edge
+      Clock Polarity: High when idle
+      Mode Fault Error: Disable
+      Bit Order: MSB First
+      Bitrate: 100000
+      Bit Rate Modulation Enable: Enable
+      Callback: g_lcd_spi_callback
+      Receive Interrupt Priority: Priority 3
+      Transmit Interrupt Priority: Priority 3
+      Transmit End Interrupt Priority: Priority 3
+      Error Interrupt Priority: Priority 3
+      
+    Object "g_main_semaphore_lcdc Semaphore"
+      Name: New Semaphore
+      Symbol: g_main_semaphore_lcdc
+      Initial count: 0
+      
   Messaging
+    Subscriber "Main Thead" 0 0
+      Event Class "Touch"
+      
