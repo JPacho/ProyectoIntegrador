@@ -186,7 +186,7 @@ static bool ssp_touch_to_guix(sf_touch_panel_payload_t * p_touch_payload, GX_EVE
 {
     bool send_event = true;
 
-    switch (p_touch_payload->event_type)
+   switch (p_touch_payload->event_type)
     {
     case SF_TOUCH_PANEL_EVENT_DOWN:
         gx_event->gx_event_type = GX_EVENT_PEN_DOWN;
@@ -208,6 +208,7 @@ static bool ssp_touch_to_guix(sf_touch_panel_payload_t * p_touch_payload, GX_EVE
     if (send_event)
     {
         /** Send event to GUI */
+
         gx_event->gx_event_sender = GX_ID_NONE;
         gx_event->gx_event_target = 0;
         gx_event->gx_event_display_handle = 0;

@@ -44,13 +44,13 @@ ioport_level_t Sw4Filtered;
 ioport_level_t Sw5Filtered;
 
 int blinkCnt;
-int u16ADC_Data =50;
+uint16_t u16ADC_Data =50;
 
 struct stFilterBtnParameters Sw4Filter;
 struct stFilterBtnParameters Sw5Filter;
 
 bool enableLed3Process;
-int dutyCycle = 50;
+uint16_t dutyCycle = 50;
 
 /************************************************************************
  Name:        hal_entry

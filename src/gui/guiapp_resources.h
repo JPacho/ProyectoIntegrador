@@ -5,8 +5,8 @@
 /*  information please refer to the GUIX Studio user's guide, or visit our web */
 /*  site at www.expresslogic.com.                                              */
 /*                                                                             */
-/*  GUIX Studio Revision 5.4.0.0                                               */
-/*  Date (dd.mm.yyyy):  2. 2.2018   Time (hh:mm): 17:44                        */
+/*  GUIX Studio Revision 5.4.2.9                                               */
+/*  Date (dd.mm.yyyy): 20. 9.2019   Time (hh:mm): 17:41                        */
 /*******************************************************************************/
 
 
@@ -56,7 +56,11 @@
 #define GX_COLOR_ID_SLIDER_NEEDLE_FILL 22
 #define GX_COLOR_ID_SLIDER_NEEDLE_LINE1 23
 #define GX_COLOR_ID_SLIDER_NEEDLE_LINE2 24
-#define DISPLAY_1_COLOR_TABLE_SIZE 25
+#define GX_COLOR_ID_DISABLED_TEXT 25
+#define GX_COLOR_ID_DISABLED_FILL 26
+#define GX_COLOR_ID_READONLY_TEXT 27
+#define GX_COLOR_ID_READONLY_FILL 28
+#define DISPLAY_1_COLOR_TABLE_SIZE 29
 
 /* Font ID definitions                                                         */
 
@@ -76,14 +80,11 @@
 
 /* String Ids                                                                  */
 
-#define GX_STRING_ID_HELLO_WORLD 1
-#define GX_STRING_ID_CHECKBOX_TEXT 2
-#define GX_STRING_ID_BUTTON_DISABLED 3
-#define GX_STRING_ID_BUTTON_ENABLED 4
-#define GX_STRING_ID_INSTRUCT_CHECKBOX 5
-#define GX_STRING_ID_WINDOW1 6
-#define GX_STRING_ID_WINDOW2 7
-#define GX_STRING_ID_INSTRUCT_BUTTON 8
-#define DISPLAY_1_STRING_TABLE_SIZE 9
+#define GX_STRING_ID_STRING_4 1
+#define GX_STRING_ID_STRING_6 2
+#define GX_STRING_ID_STRING_7 3
+#define GX_STRING_ID_STRING_8 4
+#define GX_STRING_ID_STRING_1 5
+#define DISPLAY_1_STRING_TABLE_SIZE 6
 
 #endif                                       /* sentry                         */

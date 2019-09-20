@@ -5,8 +5,8 @@
 /*  information please refer to the GUIX Studio user's guide, or visit our web */
 /*  site at www.expresslogic.com.                                              */
 /*                                                                             */
-/*  GUIX Studio Revision 5.4.0.0                                               */
-/*  Date (dd.mm.yyyy):  2. 2.2018   Time (hh:mm): 17:44                        */
+/*  GUIX Studio Revision 5.4.2.9                                               */
+/*  Date (dd.mm.yyyy): 20. 9.2019   Time (hh:mm): 17:41                        */
 /*******************************************************************************/
 
 
@@ -31,8 +31,8 @@ GX_CONST GX_COLOR display_1_theme_1_color_table[] =
     0x0000ffdc,
     0x0000ff76,
     0x00000000,
-    0x0000eedf,
-    0x0000ee76,
+    0x0000bdd7,
+    0x00007bef,
     0x0000ffff,
     0x0000e71c,
     0x00000000,
@@ -41,7 +41,11 @@ GX_CONST GX_COLOR display_1_theme_1_color_table[] =
     0x00000000,
     0x00008410,
     0x0000c618,
-    0x0000e60c
+    0x0000e60c,
+    0x0000a514,
+    0x00007bef,
+    0x0000ffff,
+    0x00007bef
 };
 
 
@@ -323,28 +327,22 @@ GX_CONST GX_PIXELMAP *display_1_theme_1_pixelmap_table[] =
 
 /* String values                                                               */
 
-GX_CONST GX_UBYTE display_1_HELLO_WORLD_English[25] = "Hello World (to window1)";
-GX_CONST GX_UBYTE display_1_CHECKBOX_TEXT_English[10] = "Press Me!";
-GX_CONST GX_UBYTE display_1_BUTTON_DISABLED_English[16] = "Stay in window1";
-GX_CONST GX_UBYTE display_1_BUTTON_ENABLED_English[13] = "Goto window2";
-GX_CONST GX_UBYTE display_1_INSTRUCT_CHECKBOX_English[30] = "Press \"Press Me!\" for more.";
-GX_CONST GX_UBYTE display_1_WINDOW1_English[8] = "Window1";
-GX_CONST GX_UBYTE display_1_WINDOW2_English[8] = "Window2";
-GX_CONST GX_UBYTE display_1_INSTRUCT_BUTTON_English[23] = "Press to go to window2";
+GX_CONST GX_UBYTE display_1_STRING_4_English[45] = "Nombre del proyecto:\rControl Vel. Motor CD ";
+GX_CONST GX_UBYTE display_1_STRING_6_English[13] = "Duty Cycle: ";
+GX_CONST GX_UBYTE display_1_STRING_7_English[2] = "0";
+GX_CONST GX_UBYTE display_1_STRING_8_English[2] = "%";
+GX_CONST GX_UBYTE display_1_STRING_1_English[10] = "text_view";
 
 /* String Table for display_1 language English                                 */
 
-GX_CONST GX_UBYTE *display_1_English_string_table[9] =
+GX_CONST GX_UBYTE *display_1_English_string_table[6] =
 {
     GX_NULL,
-    display_1_HELLO_WORLD_English,
-    display_1_CHECKBOX_TEXT_English,
-    display_1_BUTTON_DISABLED_English,
-    display_1_BUTTON_ENABLED_English,
-    display_1_INSTRUCT_CHECKBOX_English,
-    display_1_WINDOW1_English,
-    display_1_WINDOW2_English,
-    display_1_INSTRUCT_BUTTON_English
+    display_1_STRING_4_English,
+    display_1_STRING_6_English,
+    display_1_STRING_7_English,
+    display_1_STRING_8_English,
+    display_1_STRING_1_English
 
 };
 
@@ -372,8 +370,8 @@ GX_THEME display_1_theme_1 =
         0,                                   /* scroll thumb pixelmap          */
         0,                                   /* scroll up pixelmap             */
         0,                                   /* scroll down pixelmap           */
-        GX_COLOR_ID_CANVAS,                  /* scroll thumb color             */
-        GX_COLOR_ID_CANVAS,                  /* scroll thumb border color      */
+        GX_COLOR_ID_SCROLL_BUTTON,           /* scroll thumb color             */
+        GX_COLOR_ID_SCROLL_BUTTON,           /* scroll thumb border color      */
         GX_COLOR_ID_SCROLL_BUTTON,           /* scroll button color            */
     },
     {
@@ -386,13 +384,13 @@ GX_THEME display_1_theme_1 =
         0,                                   /* scroll thumb pixelmap          */
         0,                                   /* scroll up pixelmap             */
         0,                                   /* scroll down pixelmap           */
-        GX_COLOR_ID_CANVAS,                  /* scroll thumb color             */
+        GX_COLOR_ID_SCROLL_BUTTON,           /* scroll thumb color             */
         GX_COLOR_ID_CANVAS,                  /* scroll thumb border color      */
         GX_COLOR_ID_SCROLL_BUTTON,           /* scroll button color            */
     },
     GX_SCROLLBAR_RELATIVE_THUMB|GX_SCROLLBAR_END_BUTTONS|GX_SCROLLBAR_VERTICAL,
     GX_SCROLLBAR_RELATIVE_THUMB|GX_SCROLLBAR_END_BUTTONS|GX_SCROLLBAR_HORIZONTAL,
-    25,                                      /* color table size               */
+    29,                                      /* color table size               */
     4,                                       /* font table size                */
     5,                                       /* pixelmap table size            */
     0                                        /* palette size                   */
