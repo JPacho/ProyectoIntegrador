@@ -332,6 +332,7 @@ GX_CONST GX_UBYTE display_1_STRING_6_English[13] = "Duty Cycle: ";
 GX_CONST GX_UBYTE display_1_STRING_7_English[2] = "0";
 GX_CONST GX_UBYTE display_1_STRING_8_English[2] = "%";
 GX_CONST GX_UBYTE display_1_STRING_1_English[10] = "text_view";
+GX_CONST GX_UBYTE display_1_STRING_9_English[5] = "XXXX";
 
 /* String Table for display_1 language English                                 */
 
@@ -342,7 +343,8 @@ GX_CONST GX_UBYTE *display_1_English_string_table[6] =
     display_1_STRING_6_English,
     display_1_STRING_7_English,
     display_1_STRING_8_English,
-    display_1_STRING_1_English
+    display_1_STRING_1_English,
+    display_1_STRING_9_English
 
 };
 

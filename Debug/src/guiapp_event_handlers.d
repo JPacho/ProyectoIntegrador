@@ -84,13 +84,10 @@ src/guiapp_event_handlers.o: ../src/guiapp_event_handlers.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_adc.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_adc_cfg.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_adc_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_sci_spi.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_spi_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_icu.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_external_irq_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_external_irq.h \
@@ -273,19 +270,13 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h:
 
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_adc.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_adc_cfg.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_adc_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h:
-
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_sci_spi.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_spi_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_icu.h:
 

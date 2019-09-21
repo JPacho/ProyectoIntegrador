@@ -253,7 +253,7 @@ void main_thread_create(void)
 
     UINT err;
     err = tx_thread_create (&main_thread, (CHAR *) "Main Thead", main_thread_func, (ULONG) NULL, &main_thread_stack,
-                            2048, 6, 6, 10, TX_AUTO_START);
+                            2048, 1, 1, 10, TX_AUTO_START);
     if (TX_SUCCESS != err)
     {
         tx_startup_err_callback (&main_thread, 0);

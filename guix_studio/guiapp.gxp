@@ -1225,32 +1225,14 @@
 <English>TRUE</English>
 <string_table>
 <sort_column>0</sort_column>
-<num_strings>9</num_strings>
+<num_strings>7</num_strings>
 <num_languages>1</num_languages>
-<string_record>
-<id>STRING_1</id>
-<font>0</font>
-<val>Hola Eq 8</val>
-</string_record>
-<string_record>
-<id>STRING_2</id>
-<font>0</font>
-<val>prompt</val>
-</string_record>
-<string_record>
-<id>STRING_3</id>
-<font>0</font>
-<val>Hola EQ8</val>
-</string_record>
 <string_record>
 <id>STRING_4</id>
 <font>0</font>
-<val>Nombre del proyecto: Control Vel. Motor CD </val>
-</string_record>
-<string_record>
-<id>STRING_5</id>
-<font>0</font>
-<val>Nombre del proyecto: Control Vel. Motor CD</val>
+<notes>Nombre del proyecto:
+Control Vel. Motor CD </notes>
+<val>Nombre del proyecto: Control Vel. Motor CD </val>
 </string_record>
 <string_record>
 <id>STRING_6</id>
@@ -1267,6 +1249,16 @@
 <font>0</font>
 <val>%</val>
 </string_record>
+<string_record>
+<id>STRING_1</id>
+<font>0</font>
+<val>text_view</val>
+</string_record>
+<string_record>
+<id>STRING_2</id>
+<font>0</font>
+<val>Nombre del proyecto:</val>
+</string_record>
 </string_table>
 <widget_folder>
 <folder_name>default_folder</folder_name>
@@ -1276,13 +1268,13 @@
 <size>
 <left>0</left>
 <top>0</top>
-<right>239</right>
+<right>251</right>
 <bottom>319</bottom>
 </size>
 <style>1073741828</style>
 <allocation>0</allocation>
 <accepts_focus>TRUE</accepts_focus>
-<normal_fill_color>WINDOW_FILL</normal_fill_color>
+<normal_fill_color>BTN_UPPER</normal_fill_color>
 <selected_fill_color>SELECTED_FILL</selected_fill_color>
 <disabled_fill_color>DISABLED_FILL</disabled_fill_color>
 <event_handler>window1_handler</event_handler>
@@ -1293,34 +1285,34 @@
 <type>prompt</type>
 <app_name>LBL_PROJECT_NAME</app_name>
 <size>
-<left>10</left>
-<top>27</top>
-<right>229</right>
-<bottom>52</bottom>
+<left>13</left>
+<top>55</top>
+<right>232</right>
+<bottom>87</bottom>
 </size>
 <style>1342181376</style>
 <allocation>0</allocation>
 <accepts_focus>TRUE</accepts_focus>
-<normal_fill_color>WIDGET_FILL</normal_fill_color>
+<normal_fill_color>TEXT</normal_fill_color>
 <selected_fill_color>SELECTED_FILL</selected_fill_color>
 <disabled_fill_color>DISABLED_FILL</disabled_fill_color>
 <id_name>ID_LBL_PROJECT_NAME</id_name>
 <template>FALSE</template>
 <visible_at_startup>FALSE</visible_at_startup>
-<string_id>STRING_4</string_id>
+<string_id>STRING_2</string_id>
 <font_id>PROMPT</font_id>
 <normal_text_color>TEXT</normal_text_color>
 <selected_text_color>SELECTED_TEXT</selected_text_color>
-<disabled_text_color>DISABLED_TEXT</disabled_text_color>
+<disabled_text_color>SLIDER_TICK</disabled_text_color>
 </widget>
 <widget>
 <type>prompt</type>
 <app_name>LBL_DUTY</app_name>
 <size>
-<left>12</left>
-<top>46</top>
-<right>99</right>
-<bottom>69</bottom>
+<left>11</left>
+<top>102</top>
+<right>98</right>
+<bottom>125</bottom>
 </size>
 <style>1342193664</style>
 <allocation>0</allocation>
@@ -1341,10 +1333,10 @@
 <type>prompt</type>
 <app_name>LBL_DUTY_VALUE</app_name>
 <size>
-<left>101</left>
-<top>47</top>
-<right>145</right>
-<bottom>70</bottom>
+<left>93</left>
+<top>103</top>
+<right>137</right>
+<bottom>126</bottom>
 </size>
 <style>1342193664</style>
 <allocation>0</allocation>
@@ -1365,10 +1357,10 @@
 <type>prompt</type>
 <app_name>LBL_DUTY_UNIT</app_name>
 <size>
-<left>145</left>
-<top>48</top>
-<right>165</right>
-<bottom>71</bottom>
+<left>151</left>
+<top>104</top>
+<right>171</right>
+<bottom>127</bottom>
 </size>
 <style>1342181376</style>
 <allocation>0</allocation>

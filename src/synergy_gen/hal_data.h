@@ -6,8 +6,6 @@
 #include "common_data.h"
 #include "r_gpt.h"
 #include "r_timer_api.h"
-#include "r_adc.h"
-#include "r_adc_api.h"
 #ifdef __cplusplus
 extern "C"
 {
@@ -16,11 +14,6 @@ extern "C"
 extern const timer_instance_t g_timer1;
 #ifndef NULL
 void NULL(timer_callback_args_t *p_args);
-#endif
-/** ADC on ADC Instance. */
-extern const adc_instance_t g_adc0;
-#ifndef NULL
-void NULL(adc_callback_args_t *p_args);
 #endif
 /** Timer on GPT Instance. */
 extern const timer_instance_t g_timer0;
