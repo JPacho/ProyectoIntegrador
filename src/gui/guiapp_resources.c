@@ -6,7 +6,7 @@
 /*  site at www.expresslogic.com.                                              */
 /*                                                                             */
 /*  GUIX Studio Revision 5.4.2.9                                               */
-/*  Date (dd.mm.yyyy): 20. 9.2019   Time (hh:mm): 17:41                        */
+/*  Date (dd.mm.yyyy): 23. 9.2019   Time (hh:mm): 19:17                        */
 /*******************************************************************************/
 
 
@@ -327,16 +327,31 @@ GX_CONST GX_PIXELMAP *display_1_theme_1_pixelmap_table[] =
 
 /* String values                                                               */
 
-GX_CONST GX_UBYTE display_1_STRING_4_English[45] = "Nombre del proyecto:\rControl Vel. Motor CD ";
+GX_CONST GX_UBYTE display_1_STRING_4_English[46] = "Nombre del proyecto: \rControl Vel. Motor CD ";
 GX_CONST GX_UBYTE display_1_STRING_6_English[13] = "Duty Cycle: ";
 GX_CONST GX_UBYTE display_1_STRING_7_English[2] = "0";
 GX_CONST GX_UBYTE display_1_STRING_8_English[2] = "%";
 GX_CONST GX_UBYTE display_1_STRING_1_English[10] = "text_view";
-GX_CONST GX_UBYTE display_1_STRING_9_English[5] = "XXXX";
+GX_CONST GX_UBYTE display_1_STRING_2_English[21] = "Nombre del proyecto:";
+GX_CONST GX_UBYTE display_1_STRING_3_English[7] = "prompt";
+GX_CONST GX_UBYTE display_1_STRING_5_English[22] = "Control Vel. Motor CD";
+GX_CONST GX_UBYTE display_1_STRING_9_English[11] = "SW Version";
+GX_CONST GX_UBYTE display_1_STRING_10_English[12] = "SW Version:";
+GX_CONST GX_UBYTE display_1_STRING_11_English[11] = "HW_VERSION";
+GX_CONST GX_UBYTE display_1_STRING_12_English[11] = "HW Version";
+GX_CONST GX_UBYTE display_1_STRING_13_English[12] = "HW Version:";
+GX_CONST GX_UBYTE display_1_STRING_14_English[15] = "Programadores:";
+GX_CONST GX_UBYTE display_1_STRING_17_English[49] = "Castro Alejandra\rDiaz Francisco\rPedraza Gibran";
+GX_CONST GX_UBYTE display_1_STRING_15_English[10] = "LBL_SPEED";
+GX_CONST GX_UBYTE display_1_STRING_16_English[7] = "Speed:";
+GX_CONST GX_UBYTE display_1_STRING_18_English[10] = "Setpoint:";
+GX_CONST GX_UBYTE display_1_STRING_19_English[4] = "RPM";
+GX_CONST GX_UBYTE display_1_STRING_20_English[2] = "1";
+GX_CONST GX_UBYTE display_1_STRING_21_English[2] = "2";
 
 /* String Table for display_1 language English                                 */
 
-GX_CONST GX_UBYTE *display_1_English_string_table[6] =
+GX_CONST GX_UBYTE *display_1_English_string_table[22] =
 {
     GX_NULL,
     display_1_STRING_4_English,
@@ -344,7 +359,22 @@ GX_CONST GX_UBYTE *display_1_English_string_table[6] =
     display_1_STRING_7_English,
     display_1_STRING_8_English,
     display_1_STRING_1_English,
-    display_1_STRING_9_English
+    display_1_STRING_2_English,
+    display_1_STRING_3_English,
+    display_1_STRING_5_English,
+    display_1_STRING_9_English,
+    display_1_STRING_10_English,
+    display_1_STRING_11_English,
+    display_1_STRING_12_English,
+    display_1_STRING_13_English,
+    display_1_STRING_14_English,
+    display_1_STRING_17_English,
+    display_1_STRING_15_English,
+    display_1_STRING_16_English,
+    display_1_STRING_18_English,
+    display_1_STRING_19_English,
+    display_1_STRING_20_English,
+    display_1_STRING_21_English
 
 };
 

@@ -24,6 +24,7 @@
 #include "hal_data.h"
 #include "mainTick.h"
 #include "BtnDigitalFilter.h"
+#include "main_thread_pwm.h"
 
 #define C_100_ms (int)(100 / C_MAIN_TICK_MS)
 #define C_200_ms (int)(200 / C_MAIN_TICK_MS)

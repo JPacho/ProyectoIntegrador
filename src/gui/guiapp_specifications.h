@@ -6,7 +6,7 @@
 /*  www.expresslogic.com.                                                      */
 /*                                                                             */
 /*  GUIX Studio Revision 5.4.2.9                                               */
-/*  Date (dd.mm.yyyy): 20. 9.2019   Time (hh:mm): 17:41                        */
+/*  Date (dd.mm.yyyy): 23. 9.2019   Time (hh:mm): 19:17                        */
 /*******************************************************************************/
 
 
@@ -23,10 +23,20 @@ extern   "C" {
 /* Define widget ids                                                           */
 
 #define ID_WINDOW1 1
-#define ID_LBL_PROJECT_NAME 2
+#define ID_LBL_HEADER 2
 #define ID_LBL_DUTY 3
 #define ID_LBL_DUTY_VALUE 4
 #define ID_LBL_DUTY_UNIT 5
+#define ID_LBL_NAME_PROJECT 6
+#define ID_LBL_SW_VERSION 7
+#define ID_LBL_HW_VERSION 8
+#define ID_LBL_PROGRAMERS 9
+#define ID_LBL_SPEED 10
+#define ID_LBL_SETPOINT 11
+#define ID_LBL_RPM_1 12
+#define ID_LBL_RPM_2 13
+#define ID_LBL_SPEED_VALUE 14
+#define ID_LBL_SETPOINT_VALUE 15
 
 
 /* Define animation ids                                                        */
@@ -83,17 +93,38 @@ typedef struct
     GX_RESOURCE_ID wallpaper_id;
 } GX_WINDOW_PROPERTIES;
 
+typedef struct
+{
+    GX_RESOURCE_ID string_id;
+    GX_RESOURCE_ID font_id;
+    GX_RESOURCE_ID normal_text_color_id;
+    GX_RESOURCE_ID selected_text_color_id;
+    GX_BYTE        whitespace;
+    GX_BYTE        line_space;
+} GX_ML_TEXT_VIEW_PROPERTIES;
+
 
 /* Declare top-level control blocks                                            */
 
 typedef struct WINDOW1_CONTROL_BLOCK_STRUCT
 {
     GX_WINDOW_MEMBERS_DECLARE
-    GX_PROMPT window1_LBL_PROJECT_NAME;
+    GX_PROMPT window1_LBL_HEADER;
     GX_PROMPT window1_LBL_DUTY;
     GX_PROMPT window1_LBL_DUTY_VALUE;
     GX_PROMPT window1_LBL_DUTY_UNIT;
     GX_PROMPT window1_prompt;
+    GX_PROMPT window1_LBL_NAME_PROJECT;
+    GX_PROMPT window1_LBL_SW_VERSION;
+    GX_PROMPT window1_LBL_HW_VERSION;
+    GX_PROMPT window1_LBL_PROGRAMERS;
+    GX_MULTI_LINE_TEXT_VIEW window1_text_view;
+    GX_PROMPT window1_LBL_SPEED;
+    GX_PROMPT window1_LBL_SETPOINT;
+    GX_PROMPT window1_LBL_RPM_1;
+    GX_PROMPT window1_LBL_RPM_2;
+    GX_PROMPT window1_LBL_SPEED_VALUE;
+    GX_PROMPT window1_LBL_SETPOINT_VALUE;
 } WINDOW1_CONTROL_BLOCK;
 
 
@@ -192,6 +223,7 @@ typedef struct GX_STUDIO_DISPLAY_INFO_STRUCT
 
 UINT gx_studio_prompt_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent);
 UINT gx_studio_window_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent);
+UINT gx_studio_multi_line_text_view_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent);
 GX_WIDGET *gx_studio_widget_create(GX_BYTE *storage, GX_CONST GX_STUDIO_WIDGET *definition, GX_WIDGET *parent);
 UINT gx_studio_named_widget_create(char *name, GX_WIDGET *parent, GX_WIDGET **new_widget);
 UINT gx_studio_display_configure(USHORT display, UINT (*driver)(GX_DISPLAY *), USHORT language, USHORT theme, GX_WINDOW_ROOT **return_root);

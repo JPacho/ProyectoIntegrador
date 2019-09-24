@@ -81,7 +81,9 @@ src/mainTick.o: ../src/mainTick.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h \
- ../src/mainTick.h
+ ../src/mainTick.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread_pwm.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/hal_data.h
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/hal_data.h:
 
@@ -248,3 +250,7 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h:
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h:
 
 ../src/mainTick.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread_pwm.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/hal_data.h:

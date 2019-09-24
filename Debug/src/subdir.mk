@@ -9,7 +9,8 @@ C_SRCS += \
 ../src/hal_entry.c \
 ../src/mainTick.c \
 ../src/main_thread_adc_entry.c \
-../src/main_thread_entry.c 
+../src/main_thread_entry.c \
+../src/main_thread_pwm_entry.c 
 
 OBJS += \
 ./src/BtnDigitalFilter.o \
@@ -17,7 +18,8 @@ OBJS += \
 ./src/hal_entry.o \
 ./src/mainTick.o \
 ./src/main_thread_adc_entry.o \
-./src/main_thread_entry.o 
+./src/main_thread_entry.o \
+./src/main_thread_pwm_entry.o 
 
 C_DEPS += \
 ./src/BtnDigitalFilter.d \
@@ -25,7 +27,8 @@ C_DEPS += \
 ./src/hal_entry.d \
 ./src/mainTick.d \
 ./src/main_thread_adc_entry.d \
-./src/main_thread_entry.d 
+./src/main_thread_entry.d \
+./src/main_thread_pwm_entry.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

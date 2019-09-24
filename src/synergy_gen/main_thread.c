@@ -234,6 +234,8 @@ void sf_touch_panel_i2c_init0(void)
     }
 }
 TX_SEMAPHORE g_main_semaphore_lcdc;
+TX_QUEUE g_main_queue_display;
+static uint8_t queue_memory_g_main_queue_display[16];
 extern bool g_ssp_common_initialized;
 extern uint32_t g_ssp_common_thread_count;
 extern TX_SEMAPHORE g_ssp_common_initialized_semaphore;
@@ -249,6 +251,14 @@ void main_thread_create(void)
     if (TX_SUCCESS != err_g_main_semaphore_lcdc)
     {
         tx_startup_err_callback (&g_main_semaphore_lcdc, 0);
+    }
+    UINT err_g_main_queue_display;
+    err_g_main_queue_display = tx_queue_create (&g_main_queue_display, (CHAR *) "Main Queue Display", 4,
+                                                &queue_memory_g_main_queue_display,
+                                                sizeof(queue_memory_g_main_queue_display));
+    if (TX_SUCCESS != err_g_main_queue_display)
+    {
+        tx_startup_err_callback (&g_main_queue_display, 0);
     }
 
     UINT err;
