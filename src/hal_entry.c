@@ -24,6 +24,7 @@
 #include "hal_data.h"
 #include "mainTick.h"
 #include "BtnDigitalFilter.h"
+#include "main_thread_pwm.h"
 
 #define C_100_ms (int)(100 / C_MAIN_TICK_MS)
 #define C_200_ms (int)(200 / C_MAIN_TICK_MS)
@@ -44,13 +45,13 @@ ioport_level_t Sw4Filtered;
 ioport_level_t Sw5Filtered;
 
 int blinkCnt;
-int u16ADC_Data =50;
+uint16_t u16ADC_Data =50;
 
 struct stFilterBtnParameters Sw4Filter;
 struct stFilterBtnParameters Sw5Filter;
 
 bool enableLed3Process;
-int dutyCycle = 50;
+uint16_t dutyCycle = 50;
 
 /************************************************************************
  Name:        hal_entry
@@ -64,9 +65,9 @@ void hal_entry(void)
     SR_InitBtnFilter (&Sw4Filter);
     SR_InitBtnFilter (&Sw5Filter);
 
-    g_adc0.p_api->open (g_adc0.p_ctrl, g_adc0.p_cfg);
-    g_adc0.p_api->scanCfg (g_adc0.p_ctrl, g_adc0.p_channel_cfg);
-    g_adc0.p_api->scanStart (g_adc0.p_ctrl);
+    //g_adc0.p_api->open (g_adc0.p_ctrl, g_adc0.p_cfg);
+    //g_adc0.p_api->scanCfg (g_adc0.p_ctrl, g_adc0.p_channel_cfg);
+   // g_adc0.p_api->scanStart (g_adc0.p_ctrl);
 
     g_timer1.p_api->open (g_timer1.p_ctrl, g_timer1.p_cfg);
     g_timer1.p_api->start (g_timer1.p_ctrl);
@@ -132,7 +133,7 @@ void hal_entry(void)
             g_ioport.p_api->pinWrite (IOPORT_PORT_06_PIN_01, Led2);
             g_ioport.p_api->pinWrite (IOPORT_PORT_06_PIN_02, Led3);
 
-            g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data);
+           // g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data);
 
             g_timer1.p_api->dutyCycleSet (g_timer1.p_ctrl, dutyCycle, TIMER_PWM_UNIT_PERCENT, 1);
         }

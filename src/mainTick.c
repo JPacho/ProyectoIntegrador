@@ -9,7 +9,7 @@
 
 #include "hal_data.h"
 #include "mainTick.h"
-
+#include "main_thread_pwm.h"
 bool bfMainTickElapsed = false;
 int u16TickCnt = C_MAIN_TICK_MS;
 timer_size_t counts = 0;

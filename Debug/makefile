@@ -10,10 +10,25 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include synergy/ssp_supplemental/touch_drivers/touch_panel_i2c_sx8654/subdir.mk
+-include synergy/ssp/src/framework/tes/dave2d/subdir.mk
+-include synergy/ssp/src/framework/sf_touch_panel_i2c/subdir.mk
+-include synergy/ssp/src/framework/sf_tes_2d_drw/subdir.mk
+-include synergy/ssp/src/framework/sf_message/subdir.mk
+-include synergy/ssp/src/framework/sf_jpeg_decode/subdir.mk
+-include synergy/ssp/src/framework/sf_external_irq/subdir.mk
+-include synergy/ssp/src/framework/sf_el_gx/subdir.mk
+-include synergy/ssp/src/driver/r_sci_spi/subdir.mk
+-include synergy/ssp/src/driver/r_riic/subdir.mk
+-include synergy/ssp/src/driver/r_jpeg_decode/subdir.mk
+-include synergy/ssp/src/driver/r_jpeg_common/subdir.mk
 -include synergy/ssp/src/driver/r_ioport/subdir.mk
+-include synergy/ssp/src/driver/r_icu/subdir.mk
 -include synergy/ssp/src/driver/r_gpt/subdir.mk
+-include synergy/ssp/src/driver/r_glcd/subdir.mk
 -include synergy/ssp/src/driver/r_fmi/subdir.mk
 -include synergy/ssp/src/driver/r_elc/subdir.mk
+-include synergy/ssp/src/driver/r_dtc/subdir.mk
 -include synergy/ssp/src/driver/r_cgc/subdir.mk
 -include synergy/ssp/src/driver/r_adc/subdir.mk
 -include synergy/ssp/src/bsp/mcu/s7g2/subdir.mk
@@ -21,6 +36,8 @@ RM := rm -rf
 -include synergy/ssp/src/bsp/cmsis/Device/RENESAS/S7G2/Source/subdir.mk
 -include synergy/board/s7g2_sk/subdir.mk
 -include src/synergy_gen/subdir.mk
+-include src/hardware/subdir.mk
+-include src/gui/subdir.mk
 -include src/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -72,7 +89,7 @@ all: ProyectoIntegrador.elf secondary-outputs
 ProyectoIntegrador.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C Linker'
-	$(file > ProyectoIntegrador.elf.in,-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g3 -T "C:\\DSE\\EQUIPO8\\ProyectoIntegrador\\script/s7g2.ld" -Xlinker --gc-sections -L "C:\\DSE\\EQUIPO8\\ProyectoIntegrador\\synergy\\ssp\\src\\bsp\\cmsis\\DSP_Lib\\cm4_gcc" -Wl,-Map,"ProyectoIntegrador.map" --specs=nano.specs --specs=rdimon.specs -o "ProyectoIntegrador.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	$(file > ProyectoIntegrador.elf.in,-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g3 -T "C:\\DSE\\EQUIPO8\\ProyectoIntegrador\\script/s7g2.ld" -Xlinker --gc-sections -L "C:\\DSE\\EQUIPO8\\ProyectoIntegrador\\synergy\\ssp\\src\\bsp\\cmsis\\DSP_Lib\\cm4_gcc" -L "C:\\DSE\\EQUIPO8\\ProyectoIntegrador\\synergy\\ssp\\src\\framework\\el\\gx\\cm4_gcc" -L "C:\\DSE\\EQUIPO8\\ProyectoIntegrador\\synergy\\ssp\\src\\framework\\el\\tx\\cm4_gcc" -Wl,-Map,"ProyectoIntegrador.map" --specs=nano.specs --specs=rdimon.specs -o "ProyectoIntegrador.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
 	arm-none-eabi-gcc @"ProyectoIntegrador.elf.in"
 	@echo 'Finished building target: $@'
 	@echo ' '

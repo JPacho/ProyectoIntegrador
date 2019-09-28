@@ -54,7 +54,12 @@ synergy/ssp/src/driver/r_cgc/r_cgc.o: \
  ../synergy/ssp/src/driver/r_cgc/./hw/hw_cgc_private.h \
  ../synergy/ssp/src/driver/r_cgc/./hw/hw_cgc.h \
  ../synergy/ssp/src/driver/r_cgc/./hw/hw_cgc_private.h \
- ../synergy/ssp/src/driver/r_cgc/./hw/../r_cgc_private.h
+ ../synergy/ssp/src/driver/r_cgc/./hw/../r_cgc_private.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h \
+ c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_cgc.h:
 
@@ -165,3 +170,13 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\bsp/bsp_clock_cfg.h:
 ../synergy/ssp/src/driver/r_cgc/./hw/hw_cgc_private.h:
 
 ../synergy/ssp/src/driver/r_cgc/./hw/../r_cgc_private.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h:
+
+c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h:
