@@ -148,7 +148,7 @@ Synergy Configuration
       P506 146 GPIO GPIO16 - None "Input mode" - None "ADC0: AN19; IRQ0: IRQ15; SCI6: SDA; SCI6: TXD_MOSI; SDHI1: CD" 
       P507 147 GPIO GPIO17 - - "Input mode" - None "ADC1: AN19; SCI5: CTS_RTS_SS; SDHI1: WP" 
       P511 176 IIC2_SDA - - None "Peripheral mode" CMOS None "CAN1: CRX; GPT0: GTIOCB; IIC2: SDA; IRQ0: IRQ15; PDC0: PCKO; SCI4: RXD_MISO; SCI4: SCL" 
-      P512 175 IIC2_SCL - - None "Peripheral mode" CMOS None "CAN1: CTX; GPT0: GTIOCA; IIC2: SCL; IRQ0: IRQ14; PDC0: VSYNC; SCI4: SDA; SCI4: TXD_MOSI" 
+      P512 175 IIC2_SCL - - None "Peripheral mode" CMOS "input pull-up" "CAN1: CTX; GPT0: GTIOCA; IIC2: SCL; IRQ0: IRQ14; PDC0: VSYNC; SCI4: SDA; SCI4: TXD_MOSI" 
       P513 174 - - - - Disabled - - "GLCDC0: LCD_DATA16" 
       P600 122 GPIO GPIO11 Medium - "Output mode (Initial Low)" CMOS None "BUS0: RD; GLCDC0: LCD_DATA02" 
       P601 121 GPIO GPIO9 Medium - "Output mode (Initial Low)" CMOS None "BUS0: WR_WR0_DQM0; GLCDC0: LCD_DATA03" 

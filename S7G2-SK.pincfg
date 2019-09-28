@@ -955,4 +955,7 @@
   <v1:propertySetting propertyId="p410.symbolic_name" value="int_ch5"/>
   <v1:configSetting configurationId="gpt0.mode" altId="gpt0.mode.gtiocaorgtiocb.free"/>
   <v1:configSetting configurationId="p512.gpio_pupd" altId="p512.gpio_pupd.gpio_pupd_ip_up"/>
+  <v1:configSetting configurationId="p007.gpio_mode" altId="p007.gpio_mode.gpio_mode_in"/>
+  <v1:configSetting configurationId="p003.gpio_mode" altId="p003.gpio_mode.disabled"/>
+  <v1:configSetting configurationId="p007" altId="p007.input"/>
 </v1:pinSettings>
