@@ -6,17 +6,14 @@
  */
 uint16_t dutyCycle2 = 50;
 uint16_t u16ADC_Data2 = 50;
-int contPulsos = 0;
+uint16_t contPulsos = 0;
 int RPM = 0;
-int RPM1 = 0;
-int RP = 0;
 ULONG my_message[3] =
 { 0, 0, 0 };
 /* thread_adc entry function */
 void main_thread_adc_entry(void)
 {
     /* TODO: add your own code here */
-    ioport_level_t sw4 = IOPORT_LEVEL_LOW;
 
     /*
      * abrir, configurar ADC
@@ -31,20 +28,12 @@ void main_thread_adc_entry(void)
     g_timer1.p_api->open (g_timer1.p_ctrl, g_timer1.p_cfg);
     g_timer1.p_api->start (g_timer1.p_ctrl);
 
+    g_external_irq0.p_api->open(g_external_irq0.p_ctrl, g_external_irq0.p_cfg);
+
     while (1)
     {
-        g_ioport.p_api->pinRead (IOPORT_PORT_00_PIN_07, &sw4);
+        //g_ioport.p_api->pinRead (IOPORT_PORT_00_PIN_07, &sw4);
 
-        if (sw4)
-        {
-            contPulsos++;
-        }
-        if (contPulsos > 3)
-        {
-            RP++;
-            contPulsos = 0;
-        }
-        RPM = RP / 60;
 
         g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data2);
 
@@ -60,5 +49,10 @@ void main_thread_adc_entry(void)
         tx_queue_send (&g_main_queue_display, my_message, TX_NO_WAIT);
         tx_thread_sleep (10);
     }
+}
+
+void pulseInterruption(external_irq_callback_args_t *p_args)
+{
+    contPulsos++;
 }
 

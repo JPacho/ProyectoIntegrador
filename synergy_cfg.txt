@@ -75,7 +75,7 @@ Synergy Configuration
       P004 165 GPIO GPIO26 - IRQ9-DS "Input mode" - - "ADC1: AN00; CMP0: IVCMP2; IRQ0: IRQ09" 
       P005 164 GPIO GPIO25 - IRQ10-DS "Input mode" - - "ADC1: AN01; CMP0: IVCMP2; IRQ0: IRQ10" 
       P006 163 GPIO GPIO24 - IRQ11-DS "Input mode" - - "ADC1: AN02; CMP0: IVCMP2; IRQ0: IRQ11" 
-      P007 162 - - - - Disabled - - "ADC1: PGAVSS0" 
+      P007 162 GPIO - - - "Input mode" - - "ADC1: PGAVSS0" 
       P008 161 ADC0_AN03 GPIO23 - - "Analog mode" - - "ADC0: AN03; IRQ0: IRQ12" 
       P009 160 ADC0_AN04 GPIO22 - - "Analog mode" - - "ADC0: AN04; IRQ0: IRQ13" 
       P010 159 GPIO GPIO20 - IRQ14-DS "Output mode (Initial High)" CMOS None "ADC1: AN03; IRQ0: IRQ14" 
@@ -768,6 +768,16 @@ Synergy Configuration
       Callback: NULL
       Scan End Interrupt Priority: Disabled
       Scan End Group B Interrupt Priority: Disabled
+      
+    Instance "g_external_irq0 External IRQ Driver on r_icu"
+      Name: g_external_irq0
+      Channel: 10
+      Trigger: Falling
+      Digital Filtering: Disabled
+      Digital Filtering Sample Clock (Only valid when Digital Filtering is Enabled): PCLK / 64
+      Interrupt enabled after initialization: True
+      Callback: pulseInterruption
+      Pin Interrupt Priority: Priority 1
       
   Thread "Main Thread pwm"
     Symbol: main_thread_pwm
