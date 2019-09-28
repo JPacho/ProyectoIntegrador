@@ -22,36 +22,6 @@
  ***********************************************************************************************************************/
 
 #include "hal_data.h"
-#include "mainTick.h"
-#include "BtnDigitalFilter.h"
-#include "main_thread_pwm.h"
-
-#define C_100_ms (int)(100 / C_MAIN_TICK_MS)
-#define C_200_ms (int)(200 / C_MAIN_TICK_MS)
-
-#define C_BTN_PRESSED IOPORT_LEVEL_LOW
-#define C_BTN_RELEASED IOPORT_LEVEL_HIGH
-#define C_LED_ON IOPORT_LEVEL_LOW
-#define C_LED_OFF IOPORT_LEVEL_HIGH
-
-ioport_level_t P05_status;
-ioport_level_t P06_status;
-ioport_level_t P64_status;
-ioport_level_t Led1;
-ioport_level_t Led2;
-ioport_level_t Led3;
-
-ioport_level_t Sw4Filtered;
-ioport_level_t Sw5Filtered;
-
-int blinkCnt;
-uint16_t u16ADC_Data =50;
-
-struct stFilterBtnParameters Sw4Filter;
-struct stFilterBtnParameters Sw5Filter;
-
-bool enableLed3Process;
-uint16_t dutyCycle = 50;
 
 /************************************************************************
  Name:        hal_entry
@@ -59,84 +29,11 @@ uint16_t dutyCycle = 50;
  ************************************************************************/
 void hal_entry(void)
 {
-    bool bfmainTick;
-    g_timer0.p_api->open (g_timer0.p_ctrl, g_timer0.p_cfg);
-    g_timer0.p_api->start (g_timer0.p_ctrl);
-    SR_InitBtnFilter (&Sw4Filter);
-    SR_InitBtnFilter (&Sw5Filter);
-
-    //g_adc0.p_api->open (g_adc0.p_ctrl, g_adc0.p_cfg);
-    //g_adc0.p_api->scanCfg (g_adc0.p_ctrl, g_adc0.p_channel_cfg);
-   // g_adc0.p_api->scanStart (g_adc0.p_ctrl);
-
-    g_timer1.p_api->open (g_timer1.p_ctrl, g_timer1.p_cfg);
-    g_timer1.p_api->start (g_timer1.p_ctrl);
 
     while (1)
     {
 
-        bfmainTick = FN_bfPerformTick ();
-        if (bfmainTick == true)
-        {
-            SR_ClearMainTick ();
 
-            /******************************************************/
-            /*       READ INPUTS                                  */
-            /******************************************************/
-            g_ioport.p_api->pinRead (IOPORT_PORT_00_PIN_05, &P05_status);
-            g_ioport.p_api->pinRead (IOPORT_PORT_00_PIN_06, &P06_status);
-            g_ioport.p_api->pinRead (IOPORT_PORT_06_PIN_04, &P64_status);
-
-            SR_DigitalBtnFilter (P06_status, &Sw4Filter);
-            SR_DigitalBtnFilter (P05_status, &Sw5Filter);
-            /******************************************************/
-            /*       INSERT CODE HERE                             */
-            /******************************************************/
-
-            if (Sw4Filter.trigger == true)
-            {
-                Led1 = !Led1;
-            }
-
-            if (Sw5Filter.trigger == true)
-            {
-                enableLed3Process = !enableLed3Process;
-            }
-
-            if (enableLed3Process == true)
-            {
-                blinkCnt++;
-                if (blinkCnt > C_200_ms)
-                {
-                    blinkCnt = 0;
-                    Led3 = !Led3;
-                }
-            }
-            else
-            {
-                Led3 = C_LED_OFF;
-            }
-
-            if (P64_status == IOPORT_LEVEL_HIGH)
-            {
-                Led2 = C_LED_ON;
-            }
-            else
-            {
-                Led2 = C_LED_OFF;
-            }
-
-            /******************************************************/
-            /*       REFRESH OUTPUTS                              */
-            /******************************************************/
-            g_ioport.p_api->pinWrite (IOPORT_PORT_06_PIN_00, Led1);
-            g_ioport.p_api->pinWrite (IOPORT_PORT_06_PIN_01, Led2);
-            g_ioport.p_api->pinWrite (IOPORT_PORT_06_PIN_02, Led3);
-
-           // g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data);
-
-            g_timer1.p_api->dutyCycleSet (g_timer1.p_ctrl, dutyCycle, TIMER_PWM_UNIT_PERCENT, 1);
-        }
     }
 }
 

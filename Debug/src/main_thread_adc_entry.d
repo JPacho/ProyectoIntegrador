@@ -82,8 +82,8 @@ src/main_thread_adc_entry.o: ../src/main_thread_adc_entry.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_icu.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_external_irq_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt_input_capture.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_input_capture_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_adc.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_adc_cfg.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_adc_api.h \
@@ -92,6 +92,8 @@ src/main_thread_adc_entry.o: ../src/main_thread_adc_entry.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_sci_spi.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_spi_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_icu.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_external_irq_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_external_irq.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\api/sf_external_irq_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_dtc.h \
@@ -100,8 +102,7 @@ src/main_thread_adc_entry.o: ../src/main_thread_adc_entry.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_riic.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_riic_cfg.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_i2c_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_touch_panel_i2c.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread_pwm.h
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_touch_panel_i2c.h
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread_adc.h:
 
@@ -269,9 +270,9 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h:
 
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_icu.h:
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt_input_capture.h:
 
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_external_irq_api.h:
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_input_capture_api.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_adc.h:
 
@@ -288,6 +289,10 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread.h:
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_sci_spi.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_spi_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_icu.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_external_irq_api.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_external_irq.h:
 
@@ -306,5 +311,3 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_riic_cfg.h:
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_i2c_api.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_touch_panel_i2c.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread_pwm.h:
