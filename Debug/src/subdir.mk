@@ -4,31 +4,22 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/BtnDigitalFilter.c \
 ../src/guiapp_event_handlers.c \
 ../src/hal_entry.c \
-../src/mainTick.c \
 ../src/main_thread_adc_entry.c \
-../src/main_thread_entry.c \
-../src/main_thread_pwm_entry.c 
+../src/main_thread_entry.c 
 
 OBJS += \
-./src/BtnDigitalFilter.o \
 ./src/guiapp_event_handlers.o \
 ./src/hal_entry.o \
-./src/mainTick.o \
 ./src/main_thread_adc_entry.o \
-./src/main_thread_entry.o \
-./src/main_thread_pwm_entry.o 
+./src/main_thread_entry.o 
 
 C_DEPS += \
-./src/BtnDigitalFilter.d \
 ./src/guiapp_event_handlers.d \
 ./src/hal_entry.d \
-./src/mainTick.d \
 ./src/main_thread_adc_entry.d \
-./src/main_thread_entry.d \
-./src/main_thread_pwm_entry.d 
+./src/main_thread_entry.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

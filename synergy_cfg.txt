@@ -75,7 +75,7 @@ Synergy Configuration
       P004 165 GPIO GPIO26 - IRQ9-DS "Input mode" - - "ADC1: AN00; CMP0: IVCMP2; IRQ0: IRQ09" 
       P005 164 GPIO GPIO25 - IRQ10-DS "Input mode" - - "ADC1: AN01; CMP0: IVCMP2; IRQ0: IRQ10" 
       P006 163 GPIO GPIO24 - IRQ11-DS "Input mode" - - "ADC1: AN02; CMP0: IVCMP2; IRQ0: IRQ11" 
-      P007 162 - - - - Disabled - - "ADC1: PGAVSS0" 
+      P007 162 GPIO - - - "Input mode" - - "ADC1: PGAVSS0" 
       P008 161 ADC0_AN03 GPIO23 - - "Analog mode" - - "ADC0: AN03; IRQ0: IRQ12" 
       P009 160 ADC0_AN04 GPIO22 - - "Analog mode" - - "ADC0: AN04; IRQ0: IRQ13" 
       P010 159 GPIO GPIO20 - IRQ14-DS "Output mode (Initial High)" CMOS None "ADC1: AN03; IRQ0: IRQ14" 
@@ -312,6 +312,9 @@ Synergy Configuration
     
   Module "ADC Driver on r_adc"
     Parameter Checking: Enabled
+    
+  Module "Input Capture Driver on r_gpt_input_capture"
+    Parameter Checking: Default (BSP)
     
   HAL
     Instance "g_elc ELC Driver on r_elc"
@@ -682,7 +685,7 @@ Synergy Configuration
     Symbol: main_thread_adc
     Name: thread_adc
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 0
     Auto start: Enabled
     Time slicing interval (ticks): 1
     
@@ -769,17 +772,9 @@ Synergy Configuration
       Scan End Interrupt Priority: Disabled
       Scan End Group B Interrupt Priority: Disabled
       
-  Thread "Main Thread pwm"
-    Symbol: main_thread_pwm
-    Name: Main Thread pwm
-    Stack size (bytes): 1024
-    Priority: 1
-    Auto start: Enabled
-    Time slicing interval (ticks): 1
-    
-    Instance "g_timer0 Timer Driver on r_gpt"
-      Name: g_timer0
-      Channel: 9
+    Instance "systemTimer Timer Driver on r_gpt"
+      Name: systemTimer
+      Channel: 0
       Mode: Periodic
       Duty Cycle Range (only applicable in PWM mode): Shortest: 2 PCLK, Longest: (Period - 1) PCLK
       Period Value: 100
@@ -787,29 +782,28 @@ Synergy Configuration
       Duty Cycle Value: 50
       Duty Cycle Unit: Unit Raw Counts
       Auto Start: True
-      GTIOCA Output Enabled: True
+      GTIOCA Output Enabled: False
       GTIOCA Stop Level: Pin Level Low
       GTIOCB Output Enabled: False
       GTIOCB Stop Level: Pin Level Low
-      Callback: g_timer0_interrupt
-      Overflow Interrupt Priority: Priority 6
+      Callback: systemTimer_callback
+      Overflow Interrupt Priority: Priority 2
       
-    Instance "g_timer1 Timer Driver on r_gpt"
-      Name: g_timer1
-      Channel: 0
-      Mode: PWM
-      Duty Cycle Range (only applicable in PWM mode): Shortest: 2 PCLK, Longest: (Period - 1) PCLK
-      Period Value: 100
-      Period Unit: Hertz
-      Duty Cycle Value: 50
-      Duty Cycle Unit: Unit Percent
+    Instance "g_input_capture Input Capture Driver on r_gpt_input_capture"
+      Name: g_input_capture
+      Channel: 9
+      Mode: Pulse Width
+      Signal Edge: Falling
+      Repetition: Periodic
       Auto Start: True
-      GTIOCA Output Enabled: True
-      GTIOCA Stop Level: Pin Level Low
-      GTIOCB Output Enabled: True
-      GTIOCB Stop Level: Pin Level Low
-      Callback: NULL
-      Overflow Interrupt Priority: Disabled
+      Callback: input_capture_callback
+      Input Capture Signal Pin: GTIOCA
+      GTIOCx Signal Filter: None
+      Clock Divider: PCLK/1
+      Input Capture Enable Level: None
+      Input Capture Enable Filter: None (No filtering)
+      Capture Interrupt Priority: Priority 2
+      Overflow Interrupt Priority: Priority 2
       
   Messaging
     Subscriber "Main Thead" 0 0

@@ -958,4 +958,11 @@
   <v1:configSetting configurationId="p007.gpio_mode" altId="p007.gpio_mode.gpio_mode_in"/>
   <v1:configSetting configurationId="p003.gpio_mode" altId="p003.gpio_mode.disabled"/>
   <v1:configSetting configurationId="p007" altId="p007.input"/>
+  <v1:configSetting configurationId="irq0.irq10" altId="irq0.irq10.none"/>
+  <v1:configSetting configurationId="irq0.irq01" altId="irq0.irq01.none"/>
+  <v1:configSetting configurationId="p400.gpio_pupd" altId="p400.gpio_pupd.gpio_pupd_no_ip_pull"/>
+  <v1:configSetting configurationId="irq0.irq04" altId="irq0.irq04.none"/>
+  <v1:configSetting configurationId="gpt2.mode" altId="gpt2.mode.gtiocaorgtiocb.free"/>
+  <v1:configSetting configurationId="gpt2.gtioca" altId="gpt2.gtioca.none"/>
+  <v1:configSetting configurationId="gpt2.gtiocb" altId="gpt2.gtiocb.none"/>
 </v1:pinSettings>

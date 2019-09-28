@@ -7,6 +7,47 @@ static void main_thread_adc_func(ULONG thread_input);
 static uint8_t main_thread_adc_stack[1024] BSP_PLACE_IN_SECTION_V2(".stack.main_thread_adc") BSP_ALIGN_VARIABLE_V2(BSP_STACK_ALIGNMENT);
 void tx_startup_err_callback(void *p_instance, void *p_data);
 void tx_startup_common_init(void);
+#if !defined(SSP_SUPPRESS_ISR_g_input_capture) && !defined(SSP_SUPPRESS_ISR_GPT9)
+SSP_VECTOR_DEFINE_CHAN(gpt_input_capture_counter_overflow_isr, GPT, COUNTER_OVERFLOW, 9);
+#endif
+#if !defined(SSP_SUPPRESS_ISR_g_input_capture) && !defined(SSP_SUPPRESS_ISR_GPT9)
+SSP_VECTOR_DEFINE_CHAN(gpt_input_capture_isr, GPT, CAPTURE_COMPARE_A, 9);
+#endif
+static gpt_input_capture_instance_ctrl_t g_input_capture_ctrl;
+static const gpt_input_capture_extend_t g_input_capture_extend =
+{ .signal = GPT_INPUT_CAPTURE_SIGNAL_PIN_GTIOCA, .signal_filter = GPT_INPUT_CAPTURE_SIGNAL_FILTER_NONE, .clock_divider =
+          GPT_INPUT_CAPTURE_CLOCK_DIVIDER_1,
+  .enable_level = INPUT_CAPTURE_SIGNAL_LEVEL_NONE, .enable_filter = GPT_INPUT_CAPTURE_SIGNAL_FILTER_NONE, };
+static const input_capture_cfg_t g_input_capture_cfg =
+{ .channel = 9, .mode = INPUT_CAPTURE_MODE_PULSE_WIDTH, .edge = INPUT_CAPTURE_SIGNAL_EDGE_FALLING, .repetition =
+          INPUT_CAPTURE_REPETITION_PERIODIC,
+  .autostart = true, .p_callback = input_capture_callback, .p_context = &g_input_capture, .p_extend =
+          &g_input_capture_extend,
+  .capture_irq_ipl = (2), .overflow_irq_ipl = (2), };
+/* Instance structure to use this module. */
+const input_capture_instance_t g_input_capture =
+{ .p_ctrl = &g_input_capture_ctrl, .p_cfg = &g_input_capture_cfg, .p_api = &g_input_capture_on_gpt };
+#if (2) != BSP_IRQ_DISABLED
+#if !defined(SSP_SUPPRESS_ISR_systemTimer) && !defined(SSP_SUPPRESS_ISR_GPT0)
+SSP_VECTOR_DEFINE_CHAN(gpt_counter_overflow_isr, GPT, COUNTER_OVERFLOW, 0);
+#endif
+#endif
+static gpt_instance_ctrl_t systemTimer_ctrl;
+static const timer_on_gpt_cfg_t systemTimer_extend =
+{ .gtioca =
+{ .output_enabled = false, .stop_level = GPT_PIN_LEVEL_LOW },
+  .gtiocb =
+  { .output_enabled = false, .stop_level = GPT_PIN_LEVEL_LOW },
+  .shortest_pwm_signal = GPT_SHORTEST_LEVEL_OFF, };
+static const timer_cfg_t systemTimer_cfg =
+{ .mode = TIMER_MODE_PERIODIC, .period = 100, .unit = TIMER_UNIT_PERIOD_USEC, .duty_cycle = 50, .duty_cycle_unit =
+          TIMER_PWM_UNIT_RAW_COUNTS,
+  .channel = 0, .autostart = true, .p_callback = systemTimer_callback, .p_context = &systemTimer, .p_extend =
+          &systemTimer_extend,
+  .irq_ipl = (2), };
+/* Instance structure to use this module. */
+const timer_instance_t systemTimer =
+{ .p_ctrl = &systemTimer_ctrl, .p_cfg = &systemTimer_cfg, .p_api = &g_timer_on_gpt };
 #if (BSP_IRQ_DISABLED) != BSP_IRQ_DISABLED
 #if !defined(SSP_SUPPRESS_ISR_g_adc0) && !defined(SSP_SUPPRESS_ISR_ADC0)
 SSP_VECTOR_DEFINE_CHAN(adc_scan_end_isr, ADC, SCAN_END, 0);
@@ -68,7 +109,7 @@ void main_thread_adc_create(void)
 
     UINT err;
     err = tx_thread_create (&main_thread_adc, (CHAR *) "thread_adc", main_thread_adc_func, (ULONG) NULL,
-                            &main_thread_adc_stack, 1024, 1, 1, 1, TX_AUTO_START);
+                            &main_thread_adc_stack, 1024, 0, 0, 1, TX_AUTO_START);
     if (TX_SUCCESS != err)
     {
         tx_startup_err_callback (&main_thread_adc, 0);

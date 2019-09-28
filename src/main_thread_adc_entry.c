@@ -1,22 +1,18 @@
 #include <main_thread_adc.h>
 #include <main_thread.h>
-#include "main_thread_pwm.h"
 /*
  * variables
  */
 uint16_t dutyCycle2 = 50;
 uint16_t u16ADC_Data2 = 50;
-int contPulsos = 0;
-int RPM = 0;
-int RPM1 = 0;
-int RP = 0;
+uint16_t contPulsos = 0;
+uint16_t RPM = 0;
 ULONG my_message[3] =
 { 0, 0, 0 };
 /* thread_adc entry function */
 void main_thread_adc_entry(void)
 {
     /* TODO: add your own code here */
-    ioport_level_t sw4 = IOPORT_LEVEL_LOW;
 
     /*
      * abrir, configurar ADC
@@ -28,27 +24,19 @@ void main_thread_adc_entry(void)
     /*
      * abrir, correr timer1
      */
-    g_timer1.p_api->open (g_timer1.p_ctrl, g_timer1.p_cfg);
-    g_timer1.p_api->start (g_timer1.p_ctrl);
+
+    systemTimer.p_api->open (systemTimer.p_ctrl, systemTimer.p_cfg);
+    systemTimer.p_api->start (systemTimer.p_ctrl);
+
+    g_input_capture.p_api->open(g_input_capture.p_ctrl, g_input_capture.p_cfg);
+    g_input_capture.p_api->enable(g_input_capture.p_ctrl);
 
     while (1)
     {
-        g_ioport.p_api->pinRead (IOPORT_PORT_00_PIN_07, &sw4);
+        //g_ioport.p_api->pinRead (IOPORT_PORT_00_PIN_07, &sw4);
 
-        if (sw4)
-        {
-            contPulsos++;
-        }
-        if (contPulsos > 3)
-        {
-            RP++;
-            contPulsos = 0;
-        }
-        RPM = RP / 60;
 
         g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data2);
-
-        g_timer1.p_api->dutyCycleSet (g_timer1.p_ctrl, dutyCycle2, TIMER_PWM_UNIT_PERCENT, 1);
 
         /*
          * establecer rango 0-100
@@ -62,3 +50,14 @@ void main_thread_adc_entry(void)
     }
 }
 
+
+void input_capture_callback(input_capture_callback_args_t *p_args)
+{
+    contPulsos++;
+}
+
+
+void systemTimer_callback(timer_callback_args_t *p_args)
+{
+    RPM++;
+}
