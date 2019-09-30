@@ -5,8 +5,16 @@
  */
 uint16_t dutyCycle2 = 50;
 uint16_t u16ADC_Data2 = 50;
-uint16_t contPulsos = 0;
-uint16_t RPM = 0;
+/*
+Almacena el numero de pulsos por revoulción
+*/
+uint16_t PulsesPerRevolution = 0;
+
+/*
+Almacena el valor incrementado por el timer cada 100 microsegundos.
+*/
+uint32_t timer = 0;
+
 ULONG my_message[3] =
 { 0, 0, 0 };
 /* thread_adc entry function */
@@ -33,14 +41,13 @@ void main_thread_adc_entry(void)
 
     while (1)
     {
-        //g_ioport.p_api->pinRead (IOPORT_PORT_00_PIN_07, &sw4);
-
 
         g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data2);
 
         /*
          * establecer rango 0-100
          */
+		 
         //dutyCycle = (dutyCycle * 100) / 255;
         /*almacenamiento*/
         my_message[0] = dutyCycle2;
@@ -53,11 +60,11 @@ void main_thread_adc_entry(void)
 
 void input_capture_callback(input_capture_callback_args_t *p_args)
 {
-    contPulsos++;
+    PulsesPerRevolution++;
 }
 
 
 void systemTimer_callback(timer_callback_args_t *p_args)
 {
-    RPM++;
+    timer++;
 }

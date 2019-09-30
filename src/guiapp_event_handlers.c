@@ -24,7 +24,6 @@ UINT window1_handler(GX_WINDOW *widget, GX_EVENT *event_ptr)
             update_duty(widget->gx_widget_parent);
             break;
         default:
-            //update_duty(widget->gx_widget_parent);
             gx_window_event_process(widget, event_ptr);
             break;
     }
