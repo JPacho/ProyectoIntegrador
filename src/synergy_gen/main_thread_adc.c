@@ -7,6 +7,33 @@ static void main_thread_adc_func(ULONG thread_input);
 static uint8_t main_thread_adc_stack[1024] BSP_PLACE_IN_SECTION_V2(".stack.main_thread_adc") BSP_ALIGN_VARIABLE_V2(BSP_STACK_ALIGNMENT);
 void tx_startup_err_callback(void *p_instance, void *p_data);
 void tx_startup_common_init(void);
+#if (BSP_IRQ_DISABLED) != BSP_IRQ_DISABLED
+#if !defined(SSP_SUPPRESS_ISR_g_timer_pwm) && !defined(SSP_SUPPRESS_ISR_GPT1)
+SSP_VECTOR_DEFINE_CHAN(gpt_counter_overflow_isr, GPT, COUNTER_OVERFLOW, 1);
+#endif
+#endif
+static gpt_instance_ctrl_t g_timer_pwm_ctrl;
+static const timer_on_gpt_cfg_t g_timer_pwm_extend =
+{ .gtioca =
+{ .output_enabled = true, .stop_level = GPT_PIN_LEVEL_LOW },
+  .gtiocb =
+  { .output_enabled = true, .stop_level = GPT_PIN_LEVEL_LOW },
+  .shortest_pwm_signal = GPT_SHORTEST_LEVEL_OFF, };
+static const timer_cfg_t g_timer_pwm_cfg =
+{ .mode = TIMER_MODE_PWM,
+  .period = 100,
+  .unit = TIMER_UNIT_FREQUENCY_HZ,
+  .duty_cycle = 30,
+  .duty_cycle_unit = TIMER_PWM_UNIT_PERCENT,
+  .channel = 1,
+  .autostart = true,
+  .p_callback = NULL,
+  .p_context = &g_timer_pwm,
+  .p_extend = &g_timer_pwm_extend,
+  .irq_ipl = (BSP_IRQ_DISABLED), };
+/* Instance structure to use this module. */
+const timer_instance_t g_timer_pwm =
+{ .p_ctrl = &g_timer_pwm_ctrl, .p_cfg = &g_timer_pwm_cfg, .p_api = &g_timer_on_gpt };
 #if !defined(SSP_SUPPRESS_ISR_g_input_capture) && !defined(SSP_SUPPRESS_ISR_GPT9)
 SSP_VECTOR_DEFINE_CHAN(gpt_input_capture_counter_overflow_isr, GPT, COUNTER_OVERFLOW, 9);
 #endif
@@ -62,7 +89,7 @@ adc_instance_ctrl_t g_adc0_ctrl;
 const adc_cfg_t g_adc0_cfg =
 { .unit = 0,
   .mode = ADC_MODE_CONTINUOUS_SCAN,
-  .resolution = ADC_RESOLUTION_8_BIT,
+  .resolution = ADC_RESOLUTION_12_BIT,
   .alignment = ADC_ALIGNMENT_RIGHT,
   .add_average_count = ADC_ADD_OFF,
   .clearing = ADC_CLEAR_AFTER_READ_ON,

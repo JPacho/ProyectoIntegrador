@@ -898,8 +898,8 @@
   <v1:configSetting configurationId="p213.gpio_mode" altId="p213.gpio_mode.gpio_mode_peripheral"/>
   <v1:configSetting configurationId="p604.gpio_pupd" altId="p604.gpio_pupd.gpio_pupd_ip_up"/>
   <v1:configSetting configurationId="irq0.mode" altId="irq0.mode.disabled"/>
-  <v1:configSetting configurationId="gpt1.mode" altId="gpt1.mode.gtiocaorgtiocb.a"/>
-  <v1:configSetting configurationId="gpt1.pairing" altId="gpt1.pairing.a"/>
+  <v1:configSetting configurationId="gpt1.mode" altId="gpt1.mode.gtiocaorgtiocb.b"/>
+  <v1:configSetting configurationId="gpt1.pairing" altId="gpt1.pairing.b"/>
   <v1:configSetting configurationId="p115.gpio_mode" altId="p115.gpio_mode.gpio_mode_out.low"/>
   <v1:configSetting configurationId="glcdc0.lcd_data21" altId="glcdc0.lcd_data21.none"/>
   <v1:configSetting configurationId="p611" altId="p611.output.low"/>
@@ -965,4 +965,11 @@
   <v1:configSetting configurationId="gpt2.mode" altId="gpt2.mode.gtiocaorgtiocb.free"/>
   <v1:configSetting configurationId="gpt2.gtioca" altId="gpt2.gtioca.none"/>
   <v1:configSetting configurationId="gpt2.gtiocb" altId="gpt2.gtiocb.none"/>
+  <v1:configSetting configurationId="p406.gpio_mode" altId="p406.gpio_mode.gpio_mode_peripheral"/>
+  <v1:configSetting configurationId="gpt1.gtiocb" altId="gpt1.gtiocb.p406">
+    <v1:connectionSetting altId="p406.gpt1.gtiocb"/>
+  </v1:configSetting>
+  <v1:configSetting configurationId="p406" altId="p406.gpt1.gtiocb">
+    <v1:connectionSetting altId="gpt1.gtiocb.p406"/>
+  </v1:configSetting>
 </v1:pinSettings>

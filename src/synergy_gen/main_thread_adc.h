@@ -9,15 +9,20 @@ extern "C" void main_thread_adc_entry(void);
 #else
 extern void main_thread_adc_entry(void);
 #endif
-#include "r_gpt_input_capture.h"
-#include "r_input_capture_api.h"
 #include "r_gpt.h"
 #include "r_timer_api.h"
+#include "r_gpt_input_capture.h"
+#include "r_input_capture_api.h"
 #include "r_adc.h"
 #include "r_adc_api.h"
 #ifdef __cplusplus
 extern "C"
 {
+#endif
+/** Timer on GPT Instance. */
+extern const timer_instance_t g_timer_pwm;
+#ifndef NULL
+void NULL(timer_callback_args_t *p_args);
 #endif
 /** Timer on GPT Instance. */
 extern const input_capture_instance_t g_input_capture;
