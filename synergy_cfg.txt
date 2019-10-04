@@ -685,9 +685,9 @@ Synergy Configuration
     Symbol: main_thread_adc
     Name: thread_adc
     Stack size (bytes): 1024
-    Priority: 0
+    Priority: 1
     Auto start: Enabled
-    Time slicing interval (ticks): 1
+    Time slicing interval (ticks): 2
     
     Instance "g_adc0 ADC Driver on r_adc"
       Name: g_adc0
@@ -792,8 +792,8 @@ Synergy Configuration
     Instance "g_input_capture Input Capture Driver on r_gpt_input_capture"
       Name: g_input_capture
       Channel: 9
-      Mode: Pulse Width
-      Signal Edge: Falling
+      Mode: Period
+      Signal Edge: Rising
       Repetition: Periodic
       Auto Start: True
       Callback: input_capture_callback
@@ -812,7 +812,7 @@ Synergy Configuration
       Duty Cycle Range (only applicable in PWM mode): Shortest: 2 PCLK, Longest: (Period - 1) PCLK
       Period Value: 100
       Period Unit: Hertz
-      Duty Cycle Value: 30
+      Duty Cycle Value: 50
       Duty Cycle Unit: Unit Percent
       Auto Start: True
       GTIOCA Output Enabled: True

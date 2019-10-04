@@ -672,8 +672,8 @@
     <module id="module.driver.input_capture_on_gpt.1039309283">
       <property id="module.driver.input_capture.name" value="g_input_capture"/>
       <property id="module.driver.input_capture.channel" value="9"/>
-      <property id="module.driver.input_capture.mode" value="module.driver.input_capture.mode.pulse_width"/>
-      <property id="module.driver.input_capture.signal_edge" value="module.driver.input_capture.signal_edge.falling"/>
+      <property id="module.driver.input_capture.mode" value="module.driver.input_capture.mode.period"/>
+      <property id="module.driver.input_capture.signal_edge" value="module.driver.input_capture.signal_edge.rising"/>
       <property id="module.driver.input_capture.repetition" value="module.driver.input_capture.repetition.periodic"/>
       <property id="module.driver.input_capture.autostart" value="module.driver.input_capture.autostart.true"/>
       <property id="module.driver.input_capture.p_callback" value="input_capture_callback"/>
@@ -692,7 +692,7 @@
       <property id="module.driver.timer.shortest_pwm_signal" value="module.driver.timer.mode.shortest_pwm_signal_disabled"/>
       <property id="module.driver.timer.period" value="100"/>
       <property id="module.driver.timer.unit" value="module.driver.timer.unit.unit_frequency_hz"/>
-      <property id="module.driver.timer.duty_cycle" value="30"/>
+      <property id="module.driver.timer.duty_cycle" value="50"/>
       <property id="module.driver.timer.duty_cycle_unit" value="module.driver.timer.unit.unit_percent"/>
       <property id="module.driver.timer.autostart" value="module.driver.timer.autostart.true"/>
       <property id="module.driver.timer.gtioca_output_enabled" value="module.driver.timer.gtioca_output_enabled.true"/>
@@ -757,9 +757,9 @@
       <property id="_symbol" value="main_thread_adc"/>
       <property id="rtos.threadx.thread.name" value="thread_adc"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="0"/>
+      <property id="rtos.threadx.thread.priority" value="1"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
-      <property id="rtos.threadx.thread.timeslice" value="1"/>
+      <property id="rtos.threadx.thread.timeslice" value="2"/>
       <stack module="module.driver.adc_on_adc.140469326"/>
       <stack module="module.driver.timer_on_gpt.1022224021"/>
       <stack module="module.driver.input_capture_on_gpt.1039309283"/>

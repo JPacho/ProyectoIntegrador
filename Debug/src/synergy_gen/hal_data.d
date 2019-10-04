@@ -1,5 +1,5 @@
-src/synergy_gen/main_thread.o: ../src/synergy_gen/main_thread.c \
- ../src/synergy_gen/main_thread.h \
+src/synergy_gen/hal_data.o: ../src/synergy_gen/hal_data.c \
+ ../src/synergy_gen/hal_data.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\bsp/bsp_api.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\ssp_common_api.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\ssp_version.h \
@@ -45,17 +45,17 @@ src/synergy_gen/main_thread.o: ../src/synergy_gen/main_thread.c \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_feature.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_mcu_api.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_error_checking.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h \
- c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h \
- ../src/synergy_gen/hal_data.h ../src/synergy_gen/common_data.h \
+ ../src/synergy_gen/common_data.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_jpeg_decode.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_jpeg_decode_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_jpeg_decode_cfg.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_jpeg_decode.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\api/sf_jpeg_decode_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h \
+ c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_glcd.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_display_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_el_gx.h \
@@ -80,24 +80,9 @@ src/synergy_gen/main_thread.o: ../src/synergy_gen/main_thread.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_elc_cfg.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_sci_spi.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_spi_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_icu.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_external_irq_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_external_irq.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\api/sf_external_irq_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_dtc.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_dtc_cfg.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_riic.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_riic_cfg.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_i2c_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_touch_panel_i2c.h
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h
 
-../src/synergy_gen/main_thread.h:
+../src/synergy_gen/hal_data.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\bsp/bsp_api.h:
 
@@ -189,18 +174,6 @@ c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_mcu_api.h:
 
 c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_error_checking.h:
 
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h:
-
-c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h:
-
-../src/synergy_gen/hal_data.h:
-
 ../src/synergy_gen/common_data.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_jpeg_decode.h:
@@ -212,6 +185,16 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_jpeg_decode_cfg.h
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_jpeg_decode.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\api/sf_jpeg_decode_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h:
+
+c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_glcd.h:
 
@@ -262,33 +245,3 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h:
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_sci_spi.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_spi_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_icu.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_external_irq_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_external_irq.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\api/sf_external_irq_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_dtc.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_dtc_cfg.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_riic.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_riic_cfg.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_i2c_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_touch_panel_i2c.h:

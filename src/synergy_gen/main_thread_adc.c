@@ -23,7 +23,7 @@ static const timer_cfg_t g_timer_pwm_cfg =
 { .mode = TIMER_MODE_PWM,
   .period = 100,
   .unit = TIMER_UNIT_FREQUENCY_HZ,
-  .duty_cycle = 30,
+  .duty_cycle = 50,
   .duty_cycle_unit = TIMER_PWM_UNIT_PERCENT,
   .channel = 1,
   .autostart = true,
@@ -46,7 +46,7 @@ static const gpt_input_capture_extend_t g_input_capture_extend =
           GPT_INPUT_CAPTURE_CLOCK_DIVIDER_1,
   .enable_level = INPUT_CAPTURE_SIGNAL_LEVEL_NONE, .enable_filter = GPT_INPUT_CAPTURE_SIGNAL_FILTER_NONE, };
 static const input_capture_cfg_t g_input_capture_cfg =
-{ .channel = 9, .mode = INPUT_CAPTURE_MODE_PULSE_WIDTH, .edge = INPUT_CAPTURE_SIGNAL_EDGE_FALLING, .repetition =
+{ .channel = 9, .mode = INPUT_CAPTURE_MODE_PERIOD, .edge = INPUT_CAPTURE_SIGNAL_EDGE_RISING, .repetition =
           INPUT_CAPTURE_REPETITION_PERIODIC,
   .autostart = true, .p_callback = input_capture_callback, .p_context = &g_input_capture, .p_extend =
           &g_input_capture_extend,
@@ -136,7 +136,7 @@ void main_thread_adc_create(void)
 
     UINT err;
     err = tx_thread_create (&main_thread_adc, (CHAR *) "thread_adc", main_thread_adc_func, (ULONG) NULL,
-                            &main_thread_adc_stack, 1024, 0, 0, 1, TX_AUTO_START);
+                            &main_thread_adc_stack, 1024, 1, 1, 2, TX_AUTO_START);
     if (TX_SUCCESS != err)
     {
         tx_startup_err_callback (&main_thread_adc, 0);
