@@ -3,16 +3,21 @@
 /*
  * variables
  */
-uint16_t dutyCycle2 = 50;
-uint16_t u16ADC_Data2 = 50;
+
+#define MAX_COUNTS 0xFFFFFFFF + 1
+uint32_t dutyCycle = 0;
+uint32_t u16ADC_Data = 0;
 /*
-Almacena el numero de pulsos por revoulción
-*/
-uint16_t PulsesPerRevolution = 0;
+ Almacena el numero de pulsos por revoulción
+ */
+uint32_t time = 0;
+uint32_t RPM = 0;
+uint32_t frecuencia = 0;
+
 
 /*
-Almacena el valor incrementado por el timer cada 100 microsegundos.
-*/
+ Almacena el valor incrementado por el timer cada 100 microsegundos.
+ */
 uint32_t timer = 0;
 
 ULONG my_message[3] =
@@ -36,33 +41,41 @@ void main_thread_adc_entry(void)
     systemTimer.p_api->open (systemTimer.p_ctrl, systemTimer.p_cfg);
     systemTimer.p_api->start (systemTimer.p_ctrl);
 
-    g_input_capture.p_api->open(g_input_capture.p_ctrl, g_input_capture.p_cfg);
-    g_input_capture.p_api->enable(g_input_capture.p_ctrl);
+    g_timer_pwm.p_api->open (g_timer_pwm.p_ctrl, g_timer_pwm.p_cfg);
+    g_timer_pwm.p_api->start (g_timer_pwm.p_ctrl);
+
+    g_input_capture.p_api->open (g_input_capture.p_ctrl, g_input_capture.p_cfg);
+    g_input_capture.p_api->enable (g_input_capture.p_ctrl);
+
 
     while (1)
     {
 
-        g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data2);
+        g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data);
 
         /*
          * establecer rango 0-100
          */
-		 
-        //dutyCycle = (dutyCycle * 100) / 255;
+
+        dutyCycle = ((u16ADC_Data * 100) / 4095);
+
+        g_timer_pwm.p_api->dutyCycleSet (g_timer_pwm.p_ctrl, dutyCycle, TIMER_PWM_UNIT_PERCENT, 1);
+
         /*almacenamiento*/
-        my_message[0] = dutyCycle2;
+
+        my_message[0] = dutyCycle;
         /*enviar msj a thread 1*/
         tx_queue_send (&g_main_queue_display, my_message, TX_NO_WAIT);
         tx_thread_sleep (10);
     }
 }
 
-
 void input_capture_callback(input_capture_callback_args_t *p_args)
 {
-    PulsesPerRevolution++;
+    g_cgc.p_api->systemClockFreqGet(CGC_SYSTEM_CLOCKS_PCLKD, &frecuencia);
+    time = ((p_args->overflows * MAX_COUNTS) + p_args->counter) * 1000 / frecuencia;
+    RPM = (15 / time) * 1000;
 }
-
 
 void systemTimer_callback(timer_callback_args_t *p_args)
 {
