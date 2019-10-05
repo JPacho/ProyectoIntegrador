@@ -1,7 +1,9 @@
 #include <main_thread_adc.h>
 #include <main_thread.h>
 
-#define MAX_COUNTS 0xFFFFFFFF + 1
+const uint32_t MAX_COUNTS = 0xFFFFFFFF + 1;
+const uint32_t frequency  = 120000000;
+
 uint16_t dutyCycle = 0;
 uint16_t u16ADC_Data = 0;
 
@@ -64,8 +66,7 @@ void main_thread_adc_entry(void)
 
 void input_capture_callback(input_capture_callback_args_t *p_args)
 {
-    g_cgc.p_api->systemClockFreqGet(CGC_SYSTEM_CLOCKS_PCLKD, &frecuencia);
-    time = ((p_args->overflows * MAX_COUNTS) + p_args->counter) * 1000 / frecuencia;
+    time = ((p_args->overflows * MAX_COUNTS) + p_args->counter) * 1000 / frequency;
     RPM = (15 / time) * 1000;
 }
 
