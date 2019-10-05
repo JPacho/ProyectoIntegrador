@@ -7,11 +7,9 @@ const uint32_t frequency  = 120000000;
 uint16_t dutyCycle = 0;
 uint16_t u16ADC_Data = 0;
 
-uint32_t time = 0;
+uint32_t elapsed_time = 0;
 uint32_t RPM = 0;
-uint16_t setPoint = 0;
-
-uint32_t timer = 0;
+uint16_t setPoint = 123;
 
 ULONG my_message[3] =
 { 0, 0, 0 };
@@ -67,12 +65,11 @@ void main_thread_adc_entry(void)
 
 void input_capture_callback(input_capture_callback_args_t *p_args)
 {
-    time = ((p_args->overflows * MAX_COUNTS) + p_args->counter) * 1000 / frequency;
-    RPM = (15 / time) * 1000;
+    elapsed_time = ((p_args->overflows * MAX_COUNTS) + p_args->counter) * 1000 / frequency;
+    RPM = (15 / elapsed_time) * 1000;
 }
 
 void systemTimer_callback(timer_callback_args_t *p_args)
 {
     (void)p_args;
-    timer++;
 }
