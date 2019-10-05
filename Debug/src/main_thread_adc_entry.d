@@ -89,7 +89,7 @@ src/main_thread_adc_entry.o: ../src/main_thread_adc_entry.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_adc_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/thread_display.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_sci_spi.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_spi_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_icu.h \
@@ -284,7 +284,7 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h:
 
-C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread.h:
+C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/thread_display.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_sci_spi.h:
 

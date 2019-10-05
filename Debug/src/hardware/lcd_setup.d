@@ -1,5 +1,5 @@
 src/hardware/lcd_setup.o: ../src/hardware/lcd_setup.c \
- C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/thread_display.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\bsp/bsp_api.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\ssp_common_api.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\ssp_version.h \
@@ -97,7 +97,7 @@ src/hardware/lcd_setup.o: ../src/hardware/lcd_setup.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_touch_panel_i2c.h \
  ../src/hardware/lcd.h
 
-C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread.h:
+C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/thread_display.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\bsp/bsp_api.h:
 

@@ -6,7 +6,7 @@
 /*  site at www.expresslogic.com.                                              */
 /*                                                                             */
 /*  GUIX Studio Revision 5.4.2.9                                               */
-/*  Date (dd.mm.yyyy): 23. 9.2019   Time (hh:mm): 19:17                        */
+/*  Date (dd.mm.yyyy):  5.10.2019   Time (hh:mm): 09:51                        */
 /*******************************************************************************/
 
 
@@ -348,10 +348,13 @@ GX_CONST GX_UBYTE display_1_STRING_18_English[10] = "Setpoint:";
 GX_CONST GX_UBYTE display_1_STRING_19_English[4] = "RPM";
 GX_CONST GX_UBYTE display_1_STRING_20_English[2] = "1";
 GX_CONST GX_UBYTE display_1_STRING_21_English[2] = "2";
+GX_CONST GX_UBYTE display_1_STRING_22_English[4] = "100";
+GX_CONST GX_UBYTE display_1_STRING_23_English[5] = "1000";
+GX_CONST GX_UBYTE display_1_STRING_24_English[5] = "3000";
 
 /* String Table for display_1 language English                                 */
 
-GX_CONST GX_UBYTE *display_1_English_string_table[22] =
+GX_CONST GX_UBYTE *display_1_English_string_table[25] =
 {
     GX_NULL,
     display_1_STRING_4_English,
@@ -374,7 +377,10 @@ GX_CONST GX_UBYTE *display_1_English_string_table[22] =
     display_1_STRING_18_English,
     display_1_STRING_19_English,
     display_1_STRING_20_English,
-    display_1_STRING_21_English
+    display_1_STRING_21_English,
+    display_1_STRING_22_English,
+    display_1_STRING_23_English,
+    display_1_STRING_24_English
 
 };
 

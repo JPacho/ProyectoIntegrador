@@ -1,5 +1,5 @@
 #include <main_thread_adc.h>
-#include <main_thread.h>
+#include <thread_display.h>
 
 const uint32_t MAX_COUNTS = 0xFFFFFFFF + 1;
 const uint32_t frequency  = 120000000;
@@ -9,7 +9,7 @@ uint16_t u16ADC_Data = 0;
 
 uint32_t time = 0;
 uint32_t RPM = 0;
-uint32_t frecuencia = 0;
+uint16_t setPoint = 0;
 
 uint32_t timer = 0;
 
@@ -57,6 +57,7 @@ void main_thread_adc_entry(void)
         /*Queue storage*/
         my_message[0] = dutyCycle;
         my_message[1] = RPM;
+        my_message[2] = setPoint;
 
         /*Send message to Display thread.*/
         tx_queue_send (&g_main_queue_display, my_message, TX_NO_WAIT);

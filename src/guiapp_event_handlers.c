@@ -1,11 +1,11 @@
+#include <thread_display.h>
 #include "gui/guiapp_resources.h"
 #include "gui/guiapp_specifications.h"
 
-#include "main_thread.h"
 
 ULONG my_rcv_msg[3] = {0,0,0};
 
-static void update_duty(GX_WIDGET *p_widget);
+static void update_display(GX_WIDGET *p_widget);
 
 
 
@@ -20,7 +20,7 @@ UINT window1_handler(GX_WINDOW *widget, GX_EVENT *event_ptr)
             gx_system_timer_start(widget, 101, 10, 10);
             break;
         case GX_EVENT_TIMER:
-            update_duty(widget->gx_widget_parent);
+            update_display(widget->gx_widget_parent);
             break;
         default:
             gx_window_event_process(widget, event_ptr);
@@ -31,7 +31,7 @@ UINT window1_handler(GX_WINDOW *widget, GX_EVENT *event_ptr)
 }
 
 
-static void update_duty(GX_WIDGET *p_widget)
+static void update_display(GX_WIDGET *p_widget)
 {
     /*Receive message*/
 

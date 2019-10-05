@@ -692,7 +692,7 @@
       <stack module="module.driver.fmi_on_fmi.0"/>
     </context>
     <context id="rtos.threadx.thread.355891360">
-      <property id="_symbol" value="main_thread"/>
+      <property id="_symbol" value="thread_display"/>
       <property id="rtos.threadx.thread.name" value="Display Thread"/>
       <property id="rtos.threadx.thread.stack" value="2048"/>
       <property id="rtos.threadx.thread.priority" value="1"/>

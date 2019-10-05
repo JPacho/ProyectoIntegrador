@@ -330,7 +330,7 @@ Synergy Configuration
       Name: g_fmi
       
   Thread "Display Thread"
-    Symbol: main_thread
+    Symbol: thread_display
     Name: Display Thread
     Stack size (bytes): 2048
     Priority: 1
