@@ -260,9 +260,6 @@ Synergy Configuration
     SSP MCU Information Symbol Name: g_fmi_data
     Part Number Mask: 0xFE00
     
-  Module "Timer Driver on r_gpt"
-    Parameter Checking: Default (BSP)
-    
   Module "Touch Panel Framework on sf_touch_panel_i2c"
     Parameter Checking: Default (BSP)
     
@@ -313,6 +310,9 @@ Synergy Configuration
   Module "ADC Driver on r_adc"
     Parameter Checking: Enabled
     
+  Module "Timer Driver on r_gpt"
+    Parameter Checking: Default (BSP)
+    
   Module "Input Capture Driver on r_gpt_input_capture"
     Parameter Checking: Default (BSP)
     
@@ -329,26 +329,9 @@ Synergy Configuration
     Instance "g_fmi FMI Driver on r_fmi"
       Name: g_fmi
       
-    Instance "g_timer2 Timer Driver on r_gpt"
-      Name: g_timer2
-      Channel: 0
-      Mode: PWM
-      Duty Cycle Range (only applicable in PWM mode): Shortest: 2 PCLK, Longest: (Period - 1) PCLK
-      Period Value: 100
-      Period Unit: Hertz
-      Duty Cycle Value: 50
-      Duty Cycle Unit: Unit Percent
-      Auto Start: True
-      GTIOCA Output Enabled: True
-      GTIOCA Stop Level: Pin Level Low
-      GTIOCB Output Enabled: True
-      GTIOCB Stop Level: Pin Level Low
-      Callback: NULL
-      Overflow Interrupt Priority: Disabled
-      
-  Thread "Main Thead"
+  Thread "Display Thread"
     Symbol: main_thread
-    Name: Main Thead
+    Name: Display Thread
     Stack size (bytes): 2048
     Priority: 1
     Auto start: Enabled
@@ -681,9 +664,9 @@ Synergy Configuration
       Message Size (Words): 4
       Queue Size (Bytes): 16
       
-  Thread "thread_adc"
+  Thread "Reading Thread"
     Symbol: main_thread_adc
-    Name: thread_adc
+    Name: Reading Thread
     Stack size (bytes): 1024
     Priority: 1
     Auto start: Enabled
@@ -822,7 +805,15 @@ Synergy Configuration
       Callback: NULL
       Overflow Interrupt Priority: Disabled
       
+  Thread "Algorithm Thread"
+    Symbol: thread_algorithm
+    Name: Algorithm Thread
+    Stack size (bytes): 1024
+    Priority: 1
+    Auto start: Enabled
+    Time slicing interval (ticks): 1
+    
   Messaging
-    Subscriber "Main Thead" 0 0
+    Subscriber "Display Thread" 0 0
       Event Class "Touch"
       

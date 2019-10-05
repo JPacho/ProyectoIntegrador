@@ -18,6 +18,6 @@ sf_message_subscriber_list_t *p_subscriber_lists[] =
 void g_message_init(void);
 void g_message_init(void)
 {
-    tx_queue_create (&main_thread_message_queue, (CHAR *) "Main Thead Message Queue", 1,
+    tx_queue_create (&main_thread_message_queue, (CHAR *) "Display Thread Message Queue", 1,
                      &queue_memory_main_thread_message_queue, sizeof(queue_memory_main_thread_message_queue));
 }
