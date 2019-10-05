@@ -54,6 +54,7 @@ void main_thread_adc_entry(void)
 
         /*Queue storage*/
         my_message[0] = dutyCycle;
+        my_message[1] = RPM;
 
         /*Send message to Display thread.*/
         tx_queue_send (&g_main_queue_display, my_message, TX_NO_WAIT);

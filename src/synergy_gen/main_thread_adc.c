@@ -135,7 +135,7 @@ void main_thread_adc_create(void)
     /* Initialize each kernel object. */
 
     UINT err;
-    err = tx_thread_create (&main_thread_adc, (CHAR *) "thread_adc", main_thread_adc_func, (ULONG) NULL,
+    err = tx_thread_create (&main_thread_adc, (CHAR *) "Reading Thread", main_thread_adc_func, (ULONG) NULL,
                             &main_thread_adc_stack, 1024, 1, 1, 2, TX_AUTO_START);
     if (TX_SUCCESS != err)
     {

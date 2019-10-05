@@ -78,9 +78,7 @@ src/synergy_gen/hal_data.o: ../src/synergy_gen/hal_data.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_cgc_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_elc.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_elc_cfg.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h
 
 ../src/synergy_gen/hal_data.h:
 
@@ -241,7 +239,3 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_elc.h:
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_elc_cfg.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h:
