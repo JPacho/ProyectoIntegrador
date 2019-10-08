@@ -21,7 +21,7 @@ void thread_algorithm_entry(void)
     {
         /* should receive set point value from Reading Thread */
 
-        /* should compute the PID control
+        /* should compute the PID control*/
 
         computePID();
 

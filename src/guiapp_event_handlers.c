@@ -38,8 +38,8 @@ static void update_display(GX_WIDGET *p_widget)
     tx_queue_receive(&g_main_queue_display,my_rcv_msg, 20);
     ssp_err_t err = 0;
     static GX_CHAR txtDuty[4];
-    static GX_CHAR txtSpeed[4];
-    static GX_CHAR txtSetpoint[4];
+    static GX_CHAR txtSpeed[5];
+    static GX_CHAR txtSetpoint[5];
     GX_PROMPT *p_prompt = NULL;
 
     /*

@@ -65,7 +65,7 @@ void main_thread_adc_entry(void)
 
 void input_capture_callback(input_capture_callback_args_t *p_args)
 {
-    elapsed_time = ((p_args->overflows*MAX_COUNTS)+ p_args->counter) *1000 / frequency;
+    elapsed_time = ((p_args->overflows * MAX_COUNTS) + p_args->counter) * 1000 / frequency;
     RPM = (15 / elapsed_time) * 1000;
 }
 
