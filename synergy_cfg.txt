@@ -813,6 +813,29 @@ Synergy Configuration
     Auto start: Enabled
     Time slicing interval (ticks): 1
     
+    Instance "Algorithm_Timer Timer Driver on r_gpt"
+      Name: Algorithm_Timer
+      Channel: 1
+      Mode: Periodic
+      Duty Cycle Range (only applicable in PWM mode): Shortest: 2 PCLK, Longest: (Period - 1) PCLK
+      Period Value: 100
+      Period Unit: Microseconds
+      Duty Cycle Value: 50
+      Duty Cycle Unit: Unit Raw Counts
+      Auto Start: True
+      GTIOCA Output Enabled: False
+      GTIOCA Stop Level: Pin Level Low
+      GTIOCB Output Enabled: False
+      GTIOCB Stop Level: Pin Level Low
+      Callback: algorithmTimer_callback
+      Overflow Interrupt Priority: Priority 2
+      
+    Object "g_main_queue_algorithm Queue"
+      Name: Main Queue Algorithm
+      Symbol: g_main_queue_algorithm
+      Message Size (Words): 4
+      Queue Size (Bytes): 16
+      
   Messaging
     Subscriber "Display Thread" 0 0
       Event Class "Touch"

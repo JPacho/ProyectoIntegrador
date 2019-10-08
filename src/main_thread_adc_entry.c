@@ -1,5 +1,6 @@
 #include <main_thread_adc.h>
 #include <thread_display.h>
+#include <thread_algorithm.h>
 
 const uint32_t MAX_COUNTS = 0xFFFFFFFF + 1;
 const uint32_t frequency  = 120000000;
@@ -7,12 +8,16 @@ const uint32_t frequency  = 120000000;
 uint16_t dutyCycle = 0;
 uint16_t u16ADC_Data = 0;
 
-uint32_t elapsed_time = 0;
-uint32_t RPM = 0;
-uint16_t setPoint = 123;
+double elapsed_time = 0;
+double RPM = 0;
+uint16_t setPoint = 2500;
 
-ULONG my_message[3] =
-{ 0, 0, 0 };
+/*
+ *
+ */
+ULONG dataToDisplay[3] = { 0, 0, 0 };
+
+ULONG dataToAlgorithm[3] = {0, 0, 0 };
 
 /* thread_adc entry function */
 void main_thread_adc_entry(void)
@@ -52,13 +57,24 @@ void main_thread_adc_entry(void)
 
         g_timer_pwm.p_api->dutyCycleSet (g_timer_pwm.p_ctrl, dutyCycle, TIMER_PWM_UNIT_PERCENT, 1);
 
-        /*Queue storage*/
-        my_message[0] = dutyCycle;
-        my_message[1] = RPM;
-        my_message[2] = 25;
+        /*Queue storage for display thread*/
+        dataToDisplay[0] = dutyCycle;
+        dataToDisplay[1] = RPM;
+        dataToDisplay[2] = setPoint;
+
+        dataToAlgorithm[0] = RPM; //se deberia llamar speedMotor o algo asi
+        dataToAlgorithm[1] = setPoint;
+
 
         /*Send message to Display thread.*/
-        tx_queue_send (&g_main_queue_display, my_message, TX_NO_WAIT);
+        tx_queue_send (&g_main_queue_display, dataToDisplay, TX_NO_WAIT);
+
+        /* Send message to Algorithm Thread */
+        tx_queue_send (&g_main_queue_algorithm, dataToDisplay, TX_NO_WAIT);
+
+
+        RPM=0;
+
         tx_thread_sleep (10);
     }
 }

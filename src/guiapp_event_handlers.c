@@ -60,7 +60,7 @@ static void update_display(GX_WIDGET *p_widget)
     err = gx_widget_find(p_widget, ID_LBL_SETPOINT_VALUE, GX_SEARCH_DEPTH_INFINITE, (GX_WIDGET **)&p_prompt);
     if(TX_SUCCESS == err)
     {
-        gx_utility_ltoa((LONG) my_rcv_msg[1], txtSetpoint, 4);
+        gx_utility_ltoa((LONG) my_rcv_msg[2], txtSetpoint, 5);
         err = gx_prompt_text_set(p_prompt, txtSetpoint);
         if (err)
             while (1);
@@ -73,7 +73,7 @@ static void update_display(GX_WIDGET *p_widget)
     err = gx_widget_find(p_widget, ID_LBL_SPEED_VALUE, GX_SEARCH_DEPTH_INFINITE, (GX_WIDGET **)&p_prompt);
     if(TX_SUCCESS == err)
     {
-        gx_utility_ltoa((LONG) my_rcv_msg[2], txtSpeed, 4);
+        gx_utility_ltoa((LONG) my_rcv_msg[1], txtSpeed, 5);
         err = gx_prompt_text_set(p_prompt, txtSpeed);
         if (err)
             while (1);

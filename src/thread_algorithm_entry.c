@@ -1,5 +1,9 @@
 #include "thread_algorithm.h"
 
+/*
+ * Data received from Thread Reading
+ */
+ULONG received_data[3] = {0, 0, 0};
 
 const double Kp = 2;    /*0.290*/
 const double Ki = 5;    /*0.121*/
@@ -7,6 +11,8 @@ const double Kd = 1;    /*0.174*/
 
 uint16_t error, last_error = 0;
 uint16_t acumulated_error, rate_error = 0;
+uint16_t speedMotor_U16, setPoint_U16 = 0;
+uint32_t timer = 0;
 
 double PWM_output = 0;
 
@@ -36,12 +42,16 @@ void thread_algorithm_entry(void)
 void computePID()
 {
     /*Add logic for computing PID*/
+    tx_queue_receive(&g_main_queue_algorithm, received_data, 20);
+
+    speedMotor_U16 = received_data[0];
+    setPoint_U16 = received_data[1];
 
     /* Usar metodo Ziegler-Nichols para obtener ganacias del PID de forma empirica. */
 
     /* Se necesita saber el tiempo transcurrido*/
 
-    /* error = setPoint - input */
+    /* error = setPoint - speedMotor */
 
     /*
      * La integral del error es el error acumulativo en el tiempo
@@ -57,5 +67,10 @@ void computePID()
 
     PWM_output = (Kp * error) + (Ki * acumulated_error) + (Kd * rate_error);
 
+}
 
+void algorithmTimer_callback(timer_callback_args_t *p_args)
+{
+    (void)p_args;
+    timer++;
 }
