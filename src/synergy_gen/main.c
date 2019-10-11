@@ -2,7 +2,7 @@
 #include "bsp_api.h"
 #include "tx_api.h"
 
-extern void main_thread_create(void);
+extern void thread_display_create(void);
 extern void main_thread_adc_create(void);
 extern void thread_algorithm_create(void);
 
@@ -59,7 +59,7 @@ void tx_application_define(void *first_unused_memory)
         tx_startup_err_callback (&g_ssp_common_initialized_semaphore, 0);
     }
 
-    main_thread_create ();
+    thread_display_create ();
     main_thread_adc_create ();
     thread_algorithm_create ();
 

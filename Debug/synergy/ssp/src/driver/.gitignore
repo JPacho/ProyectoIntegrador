@@ -1,0 +1,14 @@
+/r_dtc/
+/r_glcd/
+/r_icu/
+/r_jpeg_common/
+/r_jpeg_decode/
+/r_riic/
+/r_sci_spi/
+/r_gpt_input_capture/
+/r_adc/
+/r_cgc/
+/r_elc/
+/r_fmi/
+/r_gpt/
+/r_ioport/

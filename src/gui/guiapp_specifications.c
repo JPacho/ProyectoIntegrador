@@ -6,7 +6,7 @@
 /*  www.expresslogic.com.                                                      */
 /*                                                                             */
 /*  GUIX Studio Revision 5.4.2.9                                               */
-/*  Date (dd.mm.yyyy): 23. 9.2019   Time (hh:mm): 19:17                        */
+/*  Date (dd.mm.yyyy):  5.10.2019   Time (hh:mm): 09:51                        */
 /*******************************************************************************/
 
 
@@ -172,14 +172,14 @@ GX_PROMPT_PROPERTIES window1_LBL_RPM_2_properties =
 };
 GX_PROMPT_PROPERTIES window1_LBL_SPEED_VALUE_properties =
 {
-    GX_STRING_ID_STRING_20,                  /* string id                      */
+    GX_STRING_ID_STRING_7,                   /* string id                      */
     GX_FONT_ID_PROMPT,                       /* font id                        */
     GX_COLOR_ID_TEXT,                        /* normal text color              */
     GX_COLOR_ID_SELECTED_TEXT                /* selected text color            */
 };
 GX_PROMPT_PROPERTIES window1_LBL_SETPOINT_VALUE_properties =
 {
-    GX_STRING_ID_STRING_21,                  /* string id                      */
+    GX_STRING_ID_STRING_7,                   /* string id                      */
     GX_FONT_ID_PROMPT,                       /* font id                        */
     GX_COLOR_ID_TEXT,                        /* normal text color              */
     GX_COLOR_ID_SELECTED_TEXT                /* selected text color            */
@@ -201,7 +201,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_SETPOINT_VALUE_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {84, 119, 163, 142},                     /* widget size                    */
+    {99, 120, 143, 143},                     /* widget size                    */
     GX_NULL,                                 /* no next widget                 */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_SETPOINT_VALUE), /* control block */
@@ -224,7 +224,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_SPEED_VALUE_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {72, 95, 151, 118},                      /* widget size                    */
+    {99, 96, 143, 119},                      /* widget size                    */
     &window1_LBL_SETPOINT_VALUE_define,      /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_SPEED_VALUE), /* control block */
@@ -247,7 +247,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_RPM_2_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {166, 121, 211, 144},                    /* widget size                    */
+    {144, 120, 189, 143},                    /* widget size                    */
     &window1_LBL_SPEED_VALUE_define,         /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_RPM_2), /* control block       */
@@ -270,7 +270,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_RPM_1_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {162, 95, 207, 118},                     /* widget size                    */
+    {144, 96, 189, 119},                     /* widget size                    */
     &window1_LBL_RPM_2_define,               /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_RPM_1), /* control block       */
@@ -316,7 +316,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_SPEED_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {-1, 98, 78, 121},                       /* widget size                    */
+    {-1, 96, 78, 119},                       /* widget size                    */
     &window1_LBL_SETPOINT_define,            /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_SPEED), /* control block       */
@@ -339,7 +339,7 @@ GX_CONST GX_STUDIO_WIDGET window1_text_view_define =
     gx_studio_multi_line_text_view_create,     /* create function              */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {58, 225, 238, 278},                     /* widget size                    */
+    {35, 220, 215, 273},                     /* widget size                    */
     &window1_LBL_SPEED_define,               /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_text_view), /* control block       */
@@ -477,7 +477,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_DUTY_UNIT_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {144, 73, 164, 96},                      /* widget size                    */
+    {149, 72, 165, 95},                      /* widget size                    */
     &window1_prompt_define,                  /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_DUTY_UNIT), /* control block   */
@@ -523,7 +523,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_DUTY_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {12, 71, 99, 94},                        /* widget size                    */
+    {12, 72, 99, 95},                        /* widget size                    */
     &window1_LBL_DUTY_VALUE_define,          /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_DUTY), /* control block        */
