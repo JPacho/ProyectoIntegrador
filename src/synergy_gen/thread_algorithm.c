@@ -8,8 +8,8 @@ static uint8_t thread_algorithm_stack[1024] BSP_PLACE_IN_SECTION_V2(".stack.thre
 void tx_startup_err_callback(void *p_instance, void *p_data);
 void tx_startup_common_init(void);
 #if (2) != BSP_IRQ_DISABLED
-#if !defined(SSP_SUPPRESS_ISR_Algorithm_Timer) && !defined(SSP_SUPPRESS_ISR_GPT1)
-SSP_VECTOR_DEFINE_CHAN(gpt_counter_overflow_isr, GPT, COUNTER_OVERFLOW, 1);
+#if !defined(SSP_SUPPRESS_ISR_Algorithm_Timer) && !defined(SSP_SUPPRESS_ISR_GPT2)
+SSP_VECTOR_DEFINE_CHAN(gpt_counter_overflow_isr, GPT, COUNTER_OVERFLOW, 2);
 #endif
 #endif
 static gpt_instance_ctrl_t Algorithm_Timer_ctrl;
@@ -22,7 +22,7 @@ static const timer_on_gpt_cfg_t Algorithm_Timer_extend =
 static const timer_cfg_t Algorithm_Timer_cfg =
 { .mode = TIMER_MODE_PERIODIC, .period = 100, .unit = TIMER_UNIT_PERIOD_USEC, .duty_cycle = 50, .duty_cycle_unit =
           TIMER_PWM_UNIT_RAW_COUNTS,
-  .channel = 1, .autostart = true, .p_callback = algorithmTimer_callback, .p_context = &Algorithm_Timer, .p_extend =
+  .channel = 2, .autostart = true, .p_callback = algorithmTimer_callback, .p_context = &Algorithm_Timer, .p_extend =
           &Algorithm_Timer_extend,
   .irq_ipl = (2), };
 /* Instance structure to use this module. */

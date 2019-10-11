@@ -5,12 +5,13 @@
 const uint32_t MAX_COUNTS = 0xFFFFFFFF + 1;
 const uint32_t frequency  = 120000000;
 
-uint16_t dutyCycle = 0;
-uint16_t u16ADC_Data = 0;
+ULONG my_rcv_msg2[3] = {0,0,0};
+//uint32_t dutyCycle = 0;
+uint32_t u16ADC_Data = 0;
 
 double elapsed_time = 0;
 double RPM = 0;
-uint16_t setPoint = 2500;
+uint32_t setPoint = 3750;
 
 /*
  *
@@ -50,15 +51,19 @@ void main_thread_adc_entry(void)
 
     while (1)
     {
+        tx_queue_receive(&g_main_queue_reading,my_rcv_msg2, 20);
+
         g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data);
 
         /* Set 0-100 range*/
-        dutyCycle = (u16ADC_Data * 100) / 4095;
+        //dutyCycle = ((u16ADC_Data * 100) / 4095);
 
-        g_timer_pwm.p_api->dutyCycleSet (g_timer_pwm.p_ctrl, dutyCycle, TIMER_PWM_UNIT_PERCENT, 1);
+        setPoint=(u16ADC_Data*3750)/4095;
+
+        g_timer_pwm.p_api->dutyCycleSet (g_timer_pwm.p_ctrl, my_rcv_msg2[0], TIMER_PWM_UNIT_PERCENT, 1);
 
         /*Queue storage for display thread*/
-        dataToDisplay[0] = dutyCycle;
+        dataToDisplay[0] = my_rcv_msg2[0];
         dataToDisplay[1] = RPM;
         dataToDisplay[2] = setPoint;
 
@@ -70,7 +75,7 @@ void main_thread_adc_entry(void)
         tx_queue_send (&g_main_queue_display, dataToDisplay, TX_NO_WAIT);
 
         /* Send message to Algorithm Thread */
-        tx_queue_send (&g_main_queue_algorithm, dataToDisplay, TX_NO_WAIT);
+        tx_queue_send (&g_main_queue_algorithm, dataToAlgorithm, TX_NO_WAIT);
 
 
         RPM=0;

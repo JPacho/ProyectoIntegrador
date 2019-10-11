@@ -81,7 +81,15 @@ src/thread_algorithm_entry.o: ../src/thread_algorithm_entry.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_elc_cfg.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread_adc.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt_input_capture.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_input_capture_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_adc.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_adc_cfg.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_adc_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/thread_algorithm.h:
 
@@ -248,3 +256,19 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h:
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_timer_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread_adc.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_gpt_input_capture.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_input_capture_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_adc.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_adc_cfg.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_adc_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_elc_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_transfer_api.h:

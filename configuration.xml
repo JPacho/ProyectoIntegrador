@@ -687,7 +687,7 @@
     </module>
     <module id="module.driver.timer_on_gpt.1981561514">
       <property id="module.driver.timer.name" value="Algorithm_Timer"/>
-      <property id="module.driver.timer.channel" value="1"/>
+      <property id="module.driver.timer.channel" value="2"/>
       <property id="module.driver.timer.mode" value="module.driver.timer.mode.mode_periodic"/>
       <property id="module.driver.timer.shortest_pwm_signal" value="module.driver.timer.mode.shortest_pwm_signal_disabled"/>
       <property id="module.driver.timer.period" value="100"/>
@@ -763,6 +763,12 @@
       <stack module="module.driver.timer_on_gpt.1022224021"/>
       <stack module="module.driver.input_capture_on_gpt.1039309283"/>
       <stack module="module.driver.timer_on_gpt.1399399714"/>
+      <object id="rtos.threadx.object.queue.963846742">
+        <property id="rtos.threadx.object.queue.name" value="Main Queue Reading"/>
+        <property id="rtos.threadx.object.queue.symbol" value="g_main_queue_reading"/>
+        <property id="rtos.threadx.object.queue.msg_size" value="4"/>
+        <property id="rtos.threadx.object.queue.queue_size" value="16"/>
+      </object>
     </context>
     <context id="rtos.threadx.thread.457012883">
       <property id="_symbol" value="thread_algorithm"/>

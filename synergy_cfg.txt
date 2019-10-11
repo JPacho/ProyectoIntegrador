@@ -805,6 +805,12 @@ Synergy Configuration
       Callback: NULL
       Overflow Interrupt Priority: Disabled
       
+    Object "g_main_queue_reading Queue"
+      Name: Main Queue Reading
+      Symbol: g_main_queue_reading
+      Message Size (Words): 4
+      Queue Size (Bytes): 16
+      
   Thread "Algorithm Thread"
     Symbol: thread_algorithm
     Name: Algorithm Thread
@@ -815,7 +821,7 @@ Synergy Configuration
     
     Instance "Algorithm_Timer Timer Driver on r_gpt"
       Name: Algorithm_Timer
-      Channel: 1
+      Channel: 2
       Mode: Periodic
       Duty Cycle Range (only applicable in PWM mode): Shortest: 2 PCLK, Longest: (Period - 1) PCLK
       Period Value: 100
