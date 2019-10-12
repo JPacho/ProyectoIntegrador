@@ -1,11 +1,5 @@
 src/guiapp_event_handlers.o: ../src/guiapp_event_handlers.c \
- ../src/gui/guiapp_resources.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h \
- c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/thread_display.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\bsp/bsp_api.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\ssp_common_api.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\ssp_version.h \
@@ -51,11 +45,11 @@ src/guiapp_event_handlers.o: ../src/guiapp_event_handlers.c \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_feature.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_mcu_api.h \
  c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_error_checking.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_port.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/gx_user.h \
- ../src/gui/guiapp_specifications.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h \
+ c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/hal_data.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/common_data.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_jpeg_decode.h \
@@ -67,6 +61,10 @@ src/guiapp_event_handlers.o: ../src/guiapp_event_handlers.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_display_api.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_el_gx.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\api/sf_el_gx_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_port.h \
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/gx_user.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_display.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_message.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\api/sf_message_api.h \
@@ -96,21 +94,10 @@ src/guiapp_event_handlers.o: ../src/guiapp_event_handlers.c \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\instances/r_riic.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_riic_cfg.h \
  C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_i2c_api.h \
- C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_touch_panel_i2c.h
+ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_touch_panel_i2c.h \
+ ../src/gui/guiapp_resources.h ../src/gui/guiapp_specifications.h
 
-../src/gui/guiapp_resources.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h:
-
-c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h:
+C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/thread_display.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\bsp/bsp_api.h:
 
@@ -202,15 +189,15 @@ c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_mcu_api.h:
 
 c:\dse\equipo8\proyectointegrador\synergy\ssp\src\bsp\mcu\all\bsp_error_checking.h:
 
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_port.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/gx_user.h:
-
-../src/gui/guiapp_specifications.h:
-
-C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/main_thread.h:
-
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_port.h:
+
+c:\dse\equipo8\proyectointegrador\synergy\ssp\inc\framework\el\cm4_gcc\tx_port.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/tx_user.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_cmsis.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\src\synergy_gen/hal_data.h:
 
@@ -233,6 +220,14 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_display_api.h:
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_el_gx.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\api/sf_el_gx_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/tx_api.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_port.h:
+
+C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\framework\el/gx_user.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\el/gx_display.h:
 
@@ -293,3 +288,7 @@ C:\DSE\EQUIPO8\ProyectoIntegrador\synergy_cfg\ssp_cfg\driver/r_riic_cfg.h:
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\driver\api/r_i2c_api.h:
 
 C:\DSE\EQUIPO8\ProyectoIntegrador\synergy\ssp\inc\framework\instances/sf_touch_panel_i2c.h:
+
+../src/gui/guiapp_resources.h:
+
+../src/gui/guiapp_specifications.h:

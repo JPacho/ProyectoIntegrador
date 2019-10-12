@@ -123,6 +123,8 @@ const adc_channel_cfg_t g_adc0_channel_cfg =
 /* Instance structure to use this module. */
 const adc_instance_t g_adc0 =
 { .p_ctrl = &g_adc0_ctrl, .p_cfg = &g_adc0_cfg, .p_channel_cfg = &g_adc0_channel_cfg, .p_api = &g_adc_on_adc };
+TX_QUEUE g_main_queue_reading;
+static uint8_t queue_memory_g_main_queue_reading[16];
 extern bool g_ssp_common_initialized;
 extern uint32_t g_ssp_common_thread_count;
 extern TX_SEMAPHORE g_ssp_common_initialized_semaphore;
@@ -133,6 +135,14 @@ void main_thread_adc_create(void)
     g_ssp_common_thread_count++;
 
     /* Initialize each kernel object. */
+    UINT err_g_main_queue_reading;
+    err_g_main_queue_reading = tx_queue_create (&g_main_queue_reading, (CHAR *) "Main Queue Reading", 4,
+                                                &queue_memory_g_main_queue_reading,
+                                                sizeof(queue_memory_g_main_queue_reading));
+    if (TX_SUCCESS != err_g_main_queue_reading)
+    {
+        tx_startup_err_callback (&g_main_queue_reading, 0);
+    }
 
     UINT err;
     err = tx_thread_create (&main_thread_adc, (CHAR *) "Reading Thread", main_thread_adc_func, (ULONG) NULL,

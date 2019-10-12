@@ -7,31 +7,31 @@ C_SRCS += \
 ../src/synergy_gen/common_data.c \
 ../src/synergy_gen/hal_data.c \
 ../src/synergy_gen/main.c \
-../src/synergy_gen/main_thread.c \
 ../src/synergy_gen/main_thread_adc.c \
 ../src/synergy_gen/message_data.c \
 ../src/synergy_gen/pin_data.c \
-../src/synergy_gen/thread_algorithm.c 
+../src/synergy_gen/thread_algorithm.c \
+../src/synergy_gen/thread_display.c 
 
 OBJS += \
 ./src/synergy_gen/common_data.o \
 ./src/synergy_gen/hal_data.o \
 ./src/synergy_gen/main.o \
-./src/synergy_gen/main_thread.o \
 ./src/synergy_gen/main_thread_adc.o \
 ./src/synergy_gen/message_data.o \
 ./src/synergy_gen/pin_data.o \
-./src/synergy_gen/thread_algorithm.o 
+./src/synergy_gen/thread_algorithm.o \
+./src/synergy_gen/thread_display.o 
 
 C_DEPS += \
 ./src/synergy_gen/common_data.d \
 ./src/synergy_gen/hal_data.d \
 ./src/synergy_gen/main.d \
-./src/synergy_gen/main_thread.d \
 ./src/synergy_gen/main_thread_adc.d \
 ./src/synergy_gen/message_data.d \
 ./src/synergy_gen/pin_data.d \
-./src/synergy_gen/thread_algorithm.d 
+./src/synergy_gen/thread_algorithm.d \
+./src/synergy_gen/thread_display.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
