@@ -5,21 +5,16 @@
 const uint32_t MAX_COUNTS = 0xFFFFFFFF + 1;
 const uint32_t frequency  = 120000000;
 
-ULONG my_rcv_msg2[3] = {0,0,0};
-uint32_t dutyCycle = 0;
+ULONG ulongMy_rcv_msg2[3] = {0,0,0};
+uint32_t u32DutyCycle = 0;
 uint16_t u16ADC_Data = 0;
 
-double elapsed_time = 0;
-double speed = 0;
-uint16_t setPoint = 0;
+double f64Elapsed_time = 0;
+double f64Speed = 0;
+uint16_t u16SetPoint = 0;
 
-/*
-uint16_t PulsesPerRevolution = 0;
- *
- */
-ULONG dataToDisplay[3] = { 0, 0, 0 };
-
-ULONG dataToAlgorithm[3] = {0, 0, 0 };
+ULONG f64DataToDisplay[3] = { 0, 0, 0 };
+ULONG f64DataToAlgorithm[3] = {0, 0, 0 };
 
 /* thread_adc entry function */
 void main_thread_adc_entry(void)
@@ -52,35 +47,35 @@ void main_thread_adc_entry(void)
 
     while (1)
     {
-        tx_queue_receive(&g_main_queue_reading,my_rcv_msg2, 20);
+        tx_queue_receive(&g_main_queue_reading,ulongMy_rcv_msg2, 20);
 
         g_adc0.p_api->read (g_adc0.p_ctrl, ADC_REG_CHANNEL_0, &u16ADC_Data);
 
         /* Set 0-100 range */
-        //dutyCycle = ((u16ADC_Data * 100) / 4095);
+        //u32DutyCycle = ((u16ADC_Data * 100) / 4095);
 
-        setPoint = (uint16_t)((u16ADC_Data * 3750) / 4095);
+        u16SetPoint = (uint16_t)((u16ADC_Data * 3750) / 4095);
 
-        dutyCycle = (uint32_t)(my_rcv_msg2[0]);
-        g_timer_pwm.p_api->dutyCycleSet (g_timer_pwm.p_ctrl, dutyCycle, TIMER_PWM_UNIT_PERCENT, 1);
+        u32DutyCycle = (uint32_t)(ulongMy_rcv_msg2[0]);
+        g_timer_pwm.p_api->dutyCycleSet (g_timer_pwm.p_ctrl, u32DutyCycle, TIMER_PWM_UNIT_PERCENT, 1);
 
         /* Queue storage for display thread */
 
-        dataToDisplay[0] = dutyCycle;
-        dataToDisplay[1] = (ULONG)(speed);
-        dataToDisplay[2] = setPoint;
+        f64DataToDisplay[0] = u32DutyCycle;
+        f64DataToDisplay[1] = (ULONG)(f64Speed);
+        f64DataToDisplay[2] = u16SetPoint;
 
         /* Queue storage for algorithm thread */
-        dataToAlgorithm[0] = (ULONG)(speed);
-        dataToAlgorithm[1] = setPoint;
+        f64DataToAlgorithm[0] = (ULONG)(f64Speed);
+        f64DataToAlgorithm[1] = u16SetPoint;
 
         /*Send message to Display thread.*/
-        tx_queue_send (&g_main_queue_display, dataToDisplay, TX_NO_WAIT);
+        tx_queue_send (&g_main_queue_display, f64DataToDisplay, TX_NO_WAIT);
 
         /* Send message to Algorithm Thread */
-        tx_queue_send (&g_main_queue_algorithm, dataToAlgorithm, TX_NO_WAIT);
+        tx_queue_send (&g_main_queue_algorithm, f64DataToAlgorithm, TX_NO_WAIT);
 
-        speed = 0;
+        f64Speed = 0;
 
         tx_thread_sleep (1);
     }
@@ -88,8 +83,8 @@ void main_thread_adc_entry(void)
 
 void input_capture_callback(input_capture_callback_args_t *p_args)
 {
-    elapsed_time = ((p_args->overflows * MAX_COUNTS) + p_args->counter) * 1000 / frequency;
-    speed = (15 / elapsed_time) * 1000;
+    f64Elapsed_time = ((p_args->overflows * MAX_COUNTS) + p_args->counter) * 1000 / frequency;
+    f64Speed = (15 / f64Elapsed_time) * 1000;
 }
 
 void systemTimer_callback(timer_callback_args_t *p_args)

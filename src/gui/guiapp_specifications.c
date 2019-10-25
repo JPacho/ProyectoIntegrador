@@ -6,7 +6,7 @@
 /*  www.expresslogic.com.                                                      */
 /*                                                                             */
 /*  GUIX Studio Revision 5.4.2.9                                               */
-/*  Date (dd.mm.yyyy):  5.10.2019   Time (hh:mm): 09:51                        */
+/*  Date (dd.mm.yyyy): 25.10.2019   Time (hh:mm): 14:27                        */
 /*******************************************************************************/
 
 
@@ -20,6 +20,48 @@ WINDOW1_CONTROL_BLOCK window1;
 GX_DISPLAY display_1_control_block;
 GX_WINDOW_ROOT display_1_root_window;
 GX_CANVAS  display_1_canvas_control_block;
+
+UINT gx_studio_icon_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent)
+{
+    UINT status;
+    GX_ICON *icon = (GX_ICON *) control_block;
+    GX_ICON_PROPERTIES *props = (GX_ICON_PROPERTIES *) info->properties;
+    status = gx_icon_create(icon, info->widget_name, parent, props->normal_pixelmap_id, info->style, info->widget_id, info->size.gx_rectangle_left, info->size.gx_rectangle_top);
+    if (props->selected_pixelmap_id)
+    {
+        gx_icon_pixelmap_set(icon, props->normal_pixelmap_id, props->selected_pixelmap_id);
+    }
+    return status;
+}
+
+UINT gx_studio_progress_bar_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent)
+{
+    UINT status;
+    GX_PROGRESS_BAR *bar = (GX_PROGRESS_BAR *) control_block;
+    GX_PROGRESS_BAR_INFO *bar_info = (GX_PROGRESS_BAR_INFO *) info->properties;
+    status = gx_progress_bar_create(bar,
+                    info->widget_name,
+                    parent,
+                    bar_info,
+                    info->style,
+                    info->widget_id,
+                    &info->size);
+    return status;
+}
+
+UINT gx_studio_radial_progress_bar_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent)
+{
+    UINT status;
+    GX_RADIAL_PROGRESS_BAR *bar = (GX_RADIAL_PROGRESS_BAR *) control_block;
+    GX_RADIAL_PROGRESS_BAR_INFO *bar_info = (GX_RADIAL_PROGRESS_BAR_INFO *) info->properties;
+    status = gx_radial_progress_bar_create(bar,
+                    info->widget_name,
+                    parent,
+                    bar_info,
+                    info->style,
+                    info->widget_id);
+    return status;
+}
 
 UINT gx_studio_prompt_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent)
 {
@@ -172,17 +214,294 @@ GX_PROMPT_PROPERTIES window1_LBL_RPM_2_properties =
 };
 GX_PROMPT_PROPERTIES window1_LBL_SPEED_VALUE_properties =
 {
-    GX_STRING_ID_STRING_7,                   /* string id                      */
+    GX_STRING_ID_STRING_20,                  /* string id                      */
     GX_FONT_ID_PROMPT,                       /* font id                        */
     GX_COLOR_ID_TEXT,                        /* normal text color              */
     GX_COLOR_ID_SELECTED_TEXT                /* selected text color            */
 };
 GX_PROMPT_PROPERTIES window1_LBL_SETPOINT_VALUE_properties =
 {
-    GX_STRING_ID_STRING_7,                   /* string id                      */
+    GX_STRING_ID_STRING_21,                  /* string id                      */
     GX_FONT_ID_PROMPT,                       /* font id                        */
     GX_COLOR_ID_TEXT,                        /* normal text color              */
     GX_COLOR_ID_SELECTED_TEXT                /* selected text color            */
+};
+GX_ICON_PROPERTIES window1_icon_properties =
+{
+    GX_PIXELMAP_ID_GE_512,                   /* normal pixelmap id             */
+    0                                        /* selected pixelmap id           */
+};
+GX_ICON_PROPERTIES window1_icon_1_properties =
+{
+    GX_PIXELMAP_ID_NEXSOL,                   /* normal pixelmap id             */
+    0                                        /* selected pixelmap id           */
+};
+GX_ICON_PROPERTIES window1_icon_2_properties =
+{
+    GX_PIXELMAP_ID_ZENDERS_LOGO,             /* normal pixelmap id             */
+    0                                        /* selected pixelmap id           */
+};
+GX_ICON_PROPERTIES window1_icon_3_properties =
+{
+    GX_PIXELMAP_ID_LOGO_UTEQ,                /* normal pixelmap id             */
+    0                                        /* selected pixelmap id           */
+};
+GX_PROGRESS_BAR_INFO window1_PROGRESS_BAR_DUTY_CYCLE_properties =
+{
+    0,                                       /* mimimun value                  */
+    100,                                     /* maximum value                  */
+    50,                                      /* current value                  */
+    GX_FONT_ID_SYSTEM,                       /* font_id                        */
+    GX_COLOR_ID_TEXT,                        /* normal text color              */
+    GX_COLOR_ID_SELECTED_TEXT,               /* selected text color            */
+    0                                        /* fill pixelmap                  */
+};
+GX_ICON_PROPERTIES window1_icon_4_properties =
+{
+    GX_PIXELMAP_ID_SPEEDOMETER_1063350_960_720__3_, /* normal pixelmap id      */
+    0                                        /* selected pixelmap id           */
+};
+GX_RADIAL_PROGRESS_BAR_INFO window1_RADIAL_PROGRESS_BAR_SPEED_properties =
+{
+    47,                                      /* xcenter                        */
+    153,                                     /* ycenter                        */
+    20,                                      /* radius                         */
+    -10,                                     /* current val                    */
+    240,                                     /* anchor val                     */
+    GX_FONT_ID_SYSTEM,                       /* font_id                        */
+    GX_COLOR_ID_TEXT,                        /* normal text color              */
+    GX_COLOR_ID_SELECTED_TEXT,               /* selected text color            */
+    3,                                       /* normal brush width             */
+    3,                                       /* selected brush width           */
+    GX_COLOR_ID_SLIDER_NEEDLE_FILL,          /* normal brush color             */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected brush color           */
+};
+GX_ICON_PROPERTIES window1_icon_5_properties =
+{
+    GX_PIXELMAP_ID_SPEEDOMETER_1063350_960_720__3_, /* normal pixelmap id      */
+    0                                        /* selected pixelmap id           */
+};
+GX_RADIAL_PROGRESS_BAR_INFO window1_RADIAL_PROGRESS_BAR_SET_POINT_properties =
+{
+    191,                                     /* xcenter                        */
+    154,                                     /* ycenter                        */
+    20,                                      /* radius                         */
+    -10,                                     /* current val                    */
+    240,                                     /* anchor val                     */
+    GX_FONT_ID_SYSTEM,                       /* font_id                        */
+    GX_COLOR_ID_TEXT,                        /* normal text color              */
+    GX_COLOR_ID_SELECTED_TEXT,               /* selected text color            */
+    3,                                       /* normal brush width             */
+    3,                                       /* selected brush width           */
+    GX_COLOR_ID_SLIDER_NEEDLE_FILL,          /* normal brush color             */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected brush color           */
+};
+
+GX_CONST GX_STUDIO_WIDGET window1_RADIAL_PROGRESS_BAR_SET_POINT_define =
+{
+    "RADIAL_PROGRESS_BAR_SET_POINT",
+    GX_TYPE_RADIAL_PROGRESS_BAR,             /* widget type                    */
+    ID_RADIAL_PROGRESS_BAR_SET_POINT,        /* widget id                      */
+    #if defined(GX_WIDGET_USER_DATA)
+    0,                                       /* user data                      */
+    #endif
+    GX_STYLE_BORDER_NONE|GX_STYLE_TRANSPARENT|GX_STYLE_ENABLED|GX_STYLE_PROGRESS_PERCENT|GX_STYLE_RADIAL_PROGRESS_ALIAS|GX_STYLE_RADIAL_PROGRESS_ROUND,   /* style flags */
+    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
+    sizeof(GX_RADIAL_PROGRESS_BAR),          /* control block size             */
+    GX_COLOR_ID_WIDGET_FILL,                 /* normal color id                */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected color id              */
+    gx_studio_radial_progress_bar_create,     /* create function               */
+    GX_NULL,                                 /* drawing function override      */
+    GX_NULL,                                 /* event function override        */
+    {169, 132, 213, 176},                    /* widget size                    */
+    GX_NULL,                                 /* no next widget                 */
+    GX_NULL,                                 /* no child widgets               */ 
+    offsetof(WINDOW1_CONTROL_BLOCK, window1_RADIAL_PROGRESS_BAR_SET_POINT), /* control block */
+    (void *) &window1_RADIAL_PROGRESS_BAR_SET_POINT_properties /* extended properties */
+};
+
+GX_CONST GX_STUDIO_WIDGET window1_icon_5_define =
+{
+    "icon_5",
+    GX_TYPE_ICON,                            /* widget type                    */
+    GX_ID_NONE,                              /* widget id                      */
+    #if defined(GX_WIDGET_USER_DATA)
+    0,                                       /* user data                      */
+    #endif
+    GX_STYLE_BORDER_NONE|GX_STYLE_ENABLED|GX_STYLE_HALIGN_LEFT|GX_STYLE_VALIGN_TOP,   /* style flags */
+    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
+    sizeof(GX_ICON),                         /* control block size             */
+    GX_COLOR_ID_WIDGET_FILL,                 /* normal color id                */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected color id              */
+    gx_studio_icon_create,                   /* create function                */
+    GX_NULL,                                 /* drawing function override      */
+    GX_NULL,                                 /* event function override        */
+    {150, 112, 234, 194},                    /* widget size                    */
+    &window1_RADIAL_PROGRESS_BAR_SET_POINT_define, /* next widget definition   */
+    GX_NULL,                                 /* no child widgets               */ 
+    offsetof(WINDOW1_CONTROL_BLOCK, window1_icon_5), /* control block          */
+    (void *) &window1_icon_5_properties      /* extended properties            */
+};
+
+GX_CONST GX_STUDIO_WIDGET window1_RADIAL_PROGRESS_BAR_SPEED_define =
+{
+    "RADIAL_PROGRESS_BAR_SPEED",
+    GX_TYPE_RADIAL_PROGRESS_BAR,             /* widget type                    */
+    ID_RADIAL_PROGRESS_BAR_SPEED,            /* widget id                      */
+    #if defined(GX_WIDGET_USER_DATA)
+    0,                                       /* user data                      */
+    #endif
+    GX_STYLE_BORDER_NONE|GX_STYLE_TRANSPARENT|GX_STYLE_ENABLED|GX_STYLE_PROGRESS_PERCENT|GX_STYLE_RADIAL_PROGRESS_ALIAS|GX_STYLE_RADIAL_PROGRESS_ROUND,   /* style flags */
+    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
+    sizeof(GX_RADIAL_PROGRESS_BAR),          /* control block size             */
+    GX_COLOR_ID_WIDGET_FILL,                 /* normal color id                */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected color id              */
+    gx_studio_radial_progress_bar_create,     /* create function               */
+    GX_NULL,                                 /* drawing function override      */
+    GX_NULL,                                 /* event function override        */
+    {25, 131, 69, 175},                      /* widget size                    */
+    &window1_icon_5_define,                  /* next widget definition         */
+    GX_NULL,                                 /* no child widgets               */ 
+    offsetof(WINDOW1_CONTROL_BLOCK, window1_RADIAL_PROGRESS_BAR_SPEED), /* control block */
+    (void *) &window1_RADIAL_PROGRESS_BAR_SPEED_properties /* extended properties */
+};
+
+GX_CONST GX_STUDIO_WIDGET window1_icon_4_define =
+{
+    "icon_4",
+    GX_TYPE_ICON,                            /* widget type                    */
+    GX_ID_NONE,                              /* widget id                      */
+    #if defined(GX_WIDGET_USER_DATA)
+    0,                                       /* user data                      */
+    #endif
+    GX_STYLE_BORDER_NONE|GX_STYLE_ENABLED|GX_STYLE_HALIGN_LEFT|GX_STYLE_VALIGN_TOP,   /* style flags */
+    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
+    sizeof(GX_ICON),                         /* control block size             */
+    GX_COLOR_ID_WIDGET_FILL,                 /* normal color id                */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected color id              */
+    gx_studio_icon_create,                   /* create function                */
+    GX_NULL,                                 /* drawing function override      */
+    GX_NULL,                                 /* event function override        */
+    {6, 112, 90, 194},                       /* widget size                    */
+    &window1_RADIAL_PROGRESS_BAR_SPEED_define, /* next widget definition       */
+    GX_NULL,                                 /* no child widgets               */ 
+    offsetof(WINDOW1_CONTROL_BLOCK, window1_icon_4), /* control block          */
+    (void *) &window1_icon_4_properties      /* extended properties            */
+};
+
+GX_CONST GX_STUDIO_WIDGET window1_PROGRESS_BAR_DUTY_CYCLE_define =
+{
+    "PROGRESS_BAR_DUTY_CYCLE",
+    GX_TYPE_PROGRESS_BAR,                    /* widget type                    */
+    ID_PROGRESS_BAR_DUTY_CYCLE,              /* widget id                      */
+    #if defined(GX_WIDGET_USER_DATA)
+    0,                                       /* user data                      */
+    #endif
+    GX_STYLE_BORDER_RAISED|GX_STYLE_ENABLED|GX_STYLE_PROGRESS_PERCENT|GX_STYLE_PROGRESS_TEXT_DRAW,   /* style flags */
+    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
+    sizeof(GX_PROGRESS_BAR),                 /* control block size             */
+    GX_COLOR_ID_WIDGET_FILL,                 /* normal color id                */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected color id              */
+    gx_studio_progress_bar_create,           /* create function                */
+    GX_NULL,                                 /* drawing function override      */
+    GX_NULL,                                 /* event function override        */
+    {158, 72, 233, 95},                      /* widget size                    */
+    &window1_icon_4_define,                  /* next widget definition         */
+    GX_NULL,                                 /* no child widgets               */ 
+    offsetof(WINDOW1_CONTROL_BLOCK, window1_PROGRESS_BAR_DUTY_CYCLE), /* control block */
+    (void *) &window1_PROGRESS_BAR_DUTY_CYCLE_properties /* extended properties */
+};
+
+GX_CONST GX_STUDIO_WIDGET window1_icon_3_define =
+{
+    "icon_3",
+    GX_TYPE_ICON,                            /* widget type                    */
+    GX_ID_NONE,                              /* widget id                      */
+    #if defined(GX_WIDGET_USER_DATA)
+    0,                                       /* user data                      */
+    #endif
+    GX_STYLE_BORDER_NONE|GX_STYLE_ENABLED|GX_STYLE_HALIGN_LEFT|GX_STYLE_VALIGN_TOP,   /* style flags */
+    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
+    sizeof(GX_ICON),                         /* control block size             */
+    GX_COLOR_ID_WIDGET_FILL,                 /* normal color id                */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected color id              */
+    gx_studio_icon_create,                   /* create function                */
+    GX_NULL,                                 /* drawing function override      */
+    GX_NULL,                                 /* event function override        */
+    {185, 8, 241, 35},                       /* widget size                    */
+    &window1_PROGRESS_BAR_DUTY_CYCLE_define, /* next widget definition         */
+    GX_NULL,                                 /* no child widgets               */ 
+    offsetof(WINDOW1_CONTROL_BLOCK, window1_icon_3), /* control block          */
+    (void *) &window1_icon_3_properties      /* extended properties            */
+};
+
+GX_CONST GX_STUDIO_WIDGET window1_icon_2_define =
+{
+    "icon_2",
+    GX_TYPE_ICON,                            /* widget type                    */
+    GX_ID_NONE,                              /* widget id                      */
+    #if defined(GX_WIDGET_USER_DATA)
+    0,                                       /* user data                      */
+    #endif
+    GX_STYLE_BORDER_NONE|GX_STYLE_ENABLED|GX_STYLE_HALIGN_LEFT|GX_STYLE_VALIGN_TOP,   /* style flags */
+    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
+    sizeof(GX_ICON),                         /* control block size             */
+    GX_COLOR_ID_WIDGET_FILL,                 /* normal color id                */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected color id              */
+    gx_studio_icon_create,                   /* create function                */
+    GX_NULL,                                 /* drawing function override      */
+    GX_NULL,                                 /* event function override        */
+    {158, 8, 185, 34},                       /* widget size                    */
+    &window1_icon_3_define,                  /* next widget definition         */
+    GX_NULL,                                 /* no child widgets               */ 
+    offsetof(WINDOW1_CONTROL_BLOCK, window1_icon_2), /* control block          */
+    (void *) &window1_icon_2_properties      /* extended properties            */
+};
+
+GX_CONST GX_STUDIO_WIDGET window1_icon_1_define =
+{
+    "icon_1",
+    GX_TYPE_ICON,                            /* widget type                    */
+    GX_ID_NONE,                              /* widget id                      */
+    #if defined(GX_WIDGET_USER_DATA)
+    0,                                       /* user data                      */
+    #endif
+    GX_STYLE_BORDER_NONE|GX_STYLE_ENABLED|GX_STYLE_HALIGN_LEFT|GX_STYLE_VALIGN_TOP,   /* style flags */
+    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
+    sizeof(GX_ICON),                         /* control block size             */
+    GX_COLOR_ID_WIDGET_FILL,                 /* normal color id                */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected color id              */
+    gx_studio_icon_create,                   /* create function                */
+    GX_NULL,                                 /* drawing function override      */
+    GX_NULL,                                 /* event function override        */
+    {49, 4, 78, 33},                         /* widget size                    */
+    &window1_icon_2_define,                  /* next widget definition         */
+    GX_NULL,                                 /* no child widgets               */ 
+    offsetof(WINDOW1_CONTROL_BLOCK, window1_icon_1), /* control block          */
+    (void *) &window1_icon_1_properties      /* extended properties            */
+};
+
+GX_CONST GX_STUDIO_WIDGET window1_icon_define =
+{
+    "icon",
+    GX_TYPE_ICON,                            /* widget type                    */
+    GX_ID_NONE,                              /* widget id                      */
+    #if defined(GX_WIDGET_USER_DATA)
+    0,                                       /* user data                      */
+    #endif
+    GX_STYLE_BORDER_NONE|GX_STYLE_ENABLED|GX_STYLE_HALIGN_LEFT|GX_STYLE_VALIGN_TOP,   /* style flags */
+    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
+    sizeof(GX_ICON),                         /* control block size             */
+    GX_COLOR_ID_WIDGET_FILL,                 /* normal color id                */
+    GX_COLOR_ID_SELECTED_FILL,               /* selected color id              */
+    gx_studio_icon_create,                   /* create function                */
+    GX_NULL,                                 /* drawing function override      */
+    GX_NULL,                                 /* event function override        */
+    {7, 3, 34, 30},                          /* widget size                    */
+    &window1_icon_1_define,                  /* next widget definition         */
+    GX_NULL,                                 /* no child widgets               */ 
+    offsetof(WINDOW1_CONTROL_BLOCK, window1_icon), /* control block            */
+    (void *) &window1_icon_properties        /* extended properties            */
 };
 
 GX_CONST GX_STUDIO_WIDGET window1_LBL_SETPOINT_VALUE_define =
@@ -201,8 +520,8 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_SETPOINT_VALUE_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {99, 120, 143, 143},                     /* widget size                    */
-    GX_NULL,                                 /* no next widget                 */
+    {145, 194, 224, 217},                    /* widget size                    */
+    &window1_icon_define,                    /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_SETPOINT_VALUE), /* control block */
     (void *) &window1_LBL_SETPOINT_VALUE_properties /* extended properties     */
@@ -224,7 +543,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_SPEED_VALUE_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {99, 96, 143, 119},                      /* widget size                    */
+    {64, 90, 143, 113},                      /* widget size                    */
     &window1_LBL_SETPOINT_VALUE_define,      /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_SPEED_VALUE), /* control block */
@@ -247,7 +566,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_RPM_2_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {144, 120, 189, 143},                    /* widget size                    */
+    {200, 196, 245, 219},                    /* widget size                    */
     &window1_LBL_SPEED_VALUE_define,         /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_RPM_2), /* control block       */
@@ -270,7 +589,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_RPM_1_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {144, 96, 189, 119},                     /* widget size                    */
+    {117, 90, 162, 113},                     /* widget size                    */
     &window1_LBL_RPM_2_define,               /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_RPM_1), /* control block       */
@@ -293,7 +612,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_SETPOINT_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {8, 120, 87, 143},                       /* widget size                    */
+    {89, 194, 168, 217},                     /* widget size                    */
     &window1_LBL_RPM_1_define,               /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_SETPOINT), /* control block    */
@@ -316,7 +635,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_SPEED_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {-1, 96, 78, 119},                       /* widget size                    */
+    {-3, 90, 76, 113},                       /* widget size                    */
     &window1_LBL_SETPOINT_define,            /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_SPEED), /* control block       */
@@ -339,7 +658,7 @@ GX_CONST GX_STUDIO_WIDGET window1_text_view_define =
     gx_studio_multi_line_text_view_create,     /* create function              */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {35, 220, 215, 273},                     /* widget size                    */
+    {84, 265, 264, 318},                     /* widget size                    */
     &window1_LBL_SPEED_define,               /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_text_view), /* control block       */
@@ -362,7 +681,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_PROGRAMERS_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {12, 191, 135, 214},                     /* widget size                    */
+    {4, 246, 127, 269},                      /* widget size                    */
     &window1_text_view_define,               /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_PROGRAMERS), /* control block  */
@@ -385,7 +704,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_HW_VERSION_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {7, 167, 107, 190},                      /* widget size                    */
+    {0, 227, 100, 250},                      /* widget size                    */
     &window1_LBL_PROGRAMERS_define,          /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_HW_VERSION), /* control block  */
@@ -408,7 +727,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_SW_VERSION_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {12, 142, 102, 165},                     /* widget size                    */
+    {4, 209, 94, 232},                       /* widget size                    */
     &window1_LBL_HW_VERSION_define,          /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_SW_VERSION), /* control block  */
@@ -431,7 +750,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_NAME_PROJECT_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {74, 41, 238, 64},                       /* widget size                    */
+    {76, 48, 240, 71},                       /* widget size                    */
     &window1_LBL_SW_VERSION_define,          /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_NAME_PROJECT), /* control block */
@@ -477,7 +796,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_DUTY_UNIT_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {149, 72, 165, 95},                      /* widget size                    */
+    {135, 74, 155, 97},                      /* widget size                    */
     &window1_prompt_define,                  /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_DUTY_UNIT), /* control block   */
@@ -500,7 +819,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_DUTY_VALUE_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {99, 72, 143, 95},                       /* widget size                    */
+    {90, 72, 134, 95},                       /* widget size                    */
     &window1_LBL_DUTY_UNIT_define,           /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_DUTY_VALUE), /* control block  */
@@ -523,7 +842,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_DUTY_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {12, 72, 99, 95},                        /* widget size                    */
+    {12, 71, 99, 94},                        /* widget size                    */
     &window1_LBL_DUTY_VALUE_define,          /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_DUTY), /* control block        */
@@ -546,7 +865,7 @@ GX_CONST GX_STUDIO_WIDGET window1_LBL_HEADER_define =
     gx_studio_prompt_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     GX_NULL,                                 /* event function override        */
-    {4, 24, 223, 41},                        /* widget size                    */
+    {1, 34, 220, 51},                        /* widget size                    */
     &window1_LBL_DUTY_define,                /* next widget definition         */
     GX_NULL,                                 /* no child widgets               */ 
     offsetof(WINDOW1_CONTROL_BLOCK, window1_LBL_HEADER), /* control block      */
@@ -569,7 +888,7 @@ GX_CONST GX_STUDIO_WIDGET window1_define =
     gx_studio_window_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     (UINT (*)(GX_WIDGET *, GX_EVENT *)) window1_handler, /* event function override */
-    {0, 0, 251, 319},                        /* widget size                    */
+    {0, 0, 241, 319},                        /* widget size                    */
     GX_NULL,                                 /* next widget                    */
     &window1_LBL_HEADER_define,              /* child widget                   */
     0,                                       /* control block                  */
