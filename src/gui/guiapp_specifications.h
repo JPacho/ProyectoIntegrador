@@ -6,7 +6,7 @@
 /*  www.expresslogic.com.                                                      */
 /*                                                                             */
 /*  GUIX Studio Revision 5.4.2.9                                               */
-/*  Date (dd.mm.yyyy):  5.10.2019   Time (hh:mm): 09:51                        */
+/*  Date (dd.mm.yyyy): 25.10.2019   Time (hh:mm): 14:27                        */
 /*******************************************************************************/
 
 
@@ -37,6 +37,9 @@ extern   "C" {
 #define ID_LBL_RPM_2 13
 #define ID_LBL_SPEED_VALUE 14
 #define ID_LBL_SETPOINT_VALUE 15
+#define ID_PROGRESS_BAR_DUTY_CYCLE 16
+#define ID_RADIAL_PROGRESS_BAR_SPEED 17
+#define ID_RADIAL_PROGRESS_BAR_SET_POINT 18
 
 
 /* Define animation ids                                                        */
@@ -79,6 +82,12 @@ typedef struct
     GX_CONST GX_STUDIO_WIDGET *widget_information;
     GX_WIDGET        *widget;
 } GX_STUDIO_WIDGET_ENTRY;
+
+typedef struct
+{
+    GX_RESOURCE_ID normal_pixelmap_id;
+    GX_RESOURCE_ID selected_pixelmap_id;
+} GX_ICON_PROPERTIES;
 
 typedef struct
 {
@@ -125,6 +134,15 @@ typedef struct WINDOW1_CONTROL_BLOCK_STRUCT
     GX_PROMPT window1_LBL_RPM_2;
     GX_PROMPT window1_LBL_SPEED_VALUE;
     GX_PROMPT window1_LBL_SETPOINT_VALUE;
+    GX_ICON window1_icon;
+    GX_ICON window1_icon_1;
+    GX_ICON window1_icon_2;
+    GX_ICON window1_icon_3;
+    GX_PROGRESS_BAR window1_PROGRESS_BAR_DUTY_CYCLE;
+    GX_ICON window1_icon_4;
+    GX_RADIAL_PROGRESS_BAR window1_RADIAL_PROGRESS_BAR_SPEED;
+    GX_ICON window1_icon_5;
+    GX_RADIAL_PROGRESS_BAR window1_RADIAL_PROGRESS_BAR_SET_POINT;
 } WINDOW1_CONTROL_BLOCK;
 
 
@@ -221,6 +239,9 @@ typedef struct GX_STUDIO_DISPLAY_INFO_STRUCT
 
 /* Declare Studio-generated functions for creating top-level widgets           */
 
+UINT gx_studio_icon_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent);
+UINT gx_studio_progress_bar_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent);
+UINT gx_studio_radial_progress_bar_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent);
 UINT gx_studio_prompt_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent);
 UINT gx_studio_window_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent);
 UINT gx_studio_multi_line_text_view_create(GX_CONST GX_STUDIO_WIDGET *info, GX_WIDGET *control_block, GX_WIDGET *parent);

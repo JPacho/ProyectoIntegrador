@@ -6,7 +6,7 @@
 /*  site at www.expresslogic.com.                                              */
 /*                                                                             */
 /*  GUIX Studio Revision 5.4.2.9                                               */
-/*  Date (dd.mm.yyyy):  5.10.2019   Time (hh:mm): 09:51                        */
+/*  Date (dd.mm.yyyy): 25.10.2019   Time (hh:mm): 14:27                        */
 /*******************************************************************************/
 
 
@@ -76,7 +76,12 @@
 #define GX_PIXELMAP_ID_RADIO_OFF 2
 #define GX_PIXELMAP_ID_CHECKBOX_ON 3
 #define GX_PIXELMAP_ID_CHECKBOX_OFF 4
-#define DISPLAY_1_PIXELMAP_TABLE_SIZE 5
+#define GX_PIXELMAP_ID_GE_512 5
+#define GX_PIXELMAP_ID_LOGO_UTEQ 6
+#define GX_PIXELMAP_ID_NEXSOL 7
+#define GX_PIXELMAP_ID_SPEEDOMETER_1063350_960_720__3_ 8
+#define GX_PIXELMAP_ID_ZENDERS_LOGO 9
+#define DISPLAY_1_PIXELMAP_TABLE_SIZE 10
 
 /* String Ids                                                                  */
 
@@ -101,9 +106,6 @@
 #define GX_STRING_ID_STRING_19 19
 #define GX_STRING_ID_STRING_20 20
 #define GX_STRING_ID_STRING_21 21
-#define GX_STRING_ID_STRING_22 22
-#define GX_STRING_ID_STRING_23 23
-#define GX_STRING_ID_STRING_24 24
-#define DISPLAY_1_STRING_TABLE_SIZE 25
+#define DISPLAY_1_STRING_TABLE_SIZE 22
 
 #endif                                       /* sentry                         */
