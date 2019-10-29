@@ -70,7 +70,6 @@ void thread_display_entry(void) {
     while (GX_NULL != *pp_studio_widget)
     {
         // We must first create the widgets according the data generated in GUIX Studio.
-
         // Once we are working on the widget we want to see first, save the pointer for later.
         if (0 == strcmp("window1", (char*)(*pp_studio_widget)->widget_name))
         {
@@ -80,6 +79,8 @@ void thread_display_entry(void) {
         }
         // Move to next top-level widget
         pp_studio_widget++;
+
+        tx_thread_sleep (1);
     }
     // Attach the first screen to the root so we can see it when the root is shown
    gx_widget_attach(p_window_root, p_first_screen);
